@@ -1,6 +1,6 @@
 /* ==========================================================================
    THORNE INTERACTIVE - MASTER JS ENGINE (PL/EN AUTO-DETECT + UI CONTROLLER)
-   Wersja: 3.3 - Auto-detekcja języka + zaktualizowane treści fabuły / FAQ
+   Wersja: 3.4 - Auto-detekcja języka + aktualizacja statusu studia
    ========================================================================== */
 
 const translations = {
@@ -83,9 +83,8 @@ const translations = {
         story_subhead_2: "JAK POWSTAJE GRA? (PROCES DEWELOPERSKI)",
         story_p2: "Projekt tworzony jest w pełni niezależnie w Polsce na silniku Unity 3D. Prace obejmują autorski model fizyki walki, dedykowane shader-graphy, trójwymiarowe modele tworzone od zera w Blenderze oraz industrialną ścieżkę dźwiękową budującą niepokojącą atmosferę.",
         stat_auteur_label: "BEZ SZTUCZNEJ CENZURY I KOMPROMISÓW",
-        story_subhead_3: "KONTAKT BEZPOŚREDNI",
-        story_contact_desc: "Masz pytania dotyczące projektu, jesteś dziennikarzem lub twórcą? Napisz bezpośrednio na nasz adres e-mail – bez zbędnych pośredników.",
-        dm_label: "BEZPOŚREDNI KONTAKT E-MAIL:",
+        story_subhead_3: "STATUS STUDIA",
+        story_contact_desc: "Oficjalne kanały kontaktowe oraz społecznościowe zostaną uruchomione wraz z udostępnieniem pierwszego zwiastuna rozgrywki.",
         footer_rights: "© 2026 THORNE INTERACTIVE. WSZELKIE PRAWA ZASTRZEŻONE."
     },
     en: {
@@ -167,9 +166,8 @@ const translations = {
         story_subhead_2: "HOW THE GAME IS MADE (DEV PROCESS)",
         story_p2: "The project is developed independently in Poland using Unity 3D. Development includes custom combat physics, dedicated shader graphs, 3D models crafted from scratch in Blender, and an unsettling industrial soundtrack.",
         stat_auteur_label: "NO ARTIFICIAL CENSORSHIP & COMPROMISES",
-        story_subhead_3: "DIRECT CONTACT",
-        story_contact_desc: "Have questions about the project, or are you a journalist or creator? Write directly to our e-mail address – no middleman.",
-        dm_label: "DIRECT CONTACT E-MAIL:",
+        story_subhead_3: "STUDIO STATUS",
+        story_contact_desc: "Official contact channels and social media will be launched alongside the release of the first gameplay trailer.",
         footer_rights: "© 2026 THORNE INTERACTIVE. ALL RIGHTS RESERVED."
     }
 };
@@ -345,7 +343,7 @@ function initSite() {
             });
     }
 
-    console.log('%c THORNE INTERACTIVE %c v3.3 // System Kernel Online ', 'background:#000;color:#fff;font-weight:bold;padding:4px;', 'background:#111;color:#888;padding:4px;');
+    console.log('%c THORNE INTERACTIVE %c v3.4 // System Kernel Online ', 'background:#000;color:#fff;font-weight:bold;padding:4px;', 'background:#111;color:#888;padding:4px;');
 }
 
 if (document.readyState === 'loading') {
