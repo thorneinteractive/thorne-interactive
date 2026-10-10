@@ -28,7 +28,7 @@
 
 * **Silnik:** Unity 3D (HDRP Custom Pipeline)
 * **Widok:** TPP / FPP (Przełączalny system kamery)
-* **Platformy docelowe:** PC (Windows 10/11 / Linux Garuda & Arch)
+* **Platformy docelowe:** PC (Windows 10/11 / Linux )
 * **Status:** Faza koncepcyjna i wczesne stadium produkcji (Early Dev)
 * **Planowana Premiera:** Wiosna 2027 (Wielkanoc / Maj 2027)
 
@@ -66,7 +66,7 @@ GODKILLER is the studio's flagship title — a dark, open-world (2 km²) action 
 
     Perspective: TPP / FPP Dynamic Camera
 
-    Target Platforms: PC (Windows 10/11 / Linux Garuda & Arch)
+    Target Platforms: PC (Windows 10/11 / Linux )
 
     Current Status: Pre-production & Core Feature Prototyping
 
@@ -103,6 +103,6 @@ thorne-interactive/
 
 🔒 LEGAL & COPYRIGHT // PRAWA AUTORSKIE
 
-    © 2026 – 2030 THORNE INTERACTIVE. WSZELKIE PRAWA ZASTRZEŻONE / ALL RIGHTS RESERVED.
+    © 2026 – 2027 THORNE INTERACTIVE. WSZELKIE PRAWA ZASTRZEŻONE / ALL RIGHTS RESERVED.
 
     Wszelkie prawa do marki THORNE INTERACTIVE, projektu GODKILLER, postaci Kaela Crossa, zasobów graficznych, kodu źródłowego, elementów uniwersum oraz oprawy wizualnej stanowią wyłączną własność intelektualną studia Thorne Interactive. Kopiowanie, redystrybucja, modyfikacja lub wykorzystywanie materiałów w celach komercyjnych bez pisemnej zgody autora jest bezwzględnie zabronione.
