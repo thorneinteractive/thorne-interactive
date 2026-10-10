@@ -1,79 +1,55 @@
-# THORNE INTERACTIVE // OFFICIAL WEB HUB
-
-<div align="center">
-
-**INDEPENDENT AUTEUR GAME STUDIO // UNCOMPROMISING REALISM**
-
-[![Status](https://img.shields.io/badge/STATUS-PRE--ALPHA-111111?style=for-the-badge&logoColor=white&color=000000)](https://thorneinteractive.github.io/thorne-interactive/)
-[![Engine](https://img.shields.io/badge/ENGINE-UNITY_3D-111111?style=for-the-badge&logoColor=white&color=000000)](https://unity.com/)
-[![Localization](https://img.shields.io/badge/LANG-PL%2FEN_AUTO-111111?style=for-the-badge&logoColor=white&color=000000)](https://thorneinteractive.github.io/thorne-interactive/)
-[![License](https://img.shields.io/badge/LICENSE-ALL_RIGHTS_RESERVED-darkred?style=for-the-badge)](https://thorneinteractive.github.io/thorne-interactive/)
-
-🌐 **Live Website:** [https://thorneinteractive.github.io/thorne-interactive/](https://thorneinteractive.github.io/thorne-interactive/)
-
-</div>
-
----
-
-## 🇵🇱 POLSKI
-
-### O Studio & Projekcie
-**Thorne Interactive** to niezależne, autorskie studio gier z Polski, tworzące produkcje dla dojrzałego odbiorcy. Skupiamy się na tworzeniu doświadczeń, w których bezkompromisowa mechanika rozgrywki ściśle współgra z ciężką, egzystencjalną narracją.
-
-Flagowym projektem studia jest **GODKILLER** — gra akcji w otwartym świecie (2 km²) osadzona w surowym uniwersum roku 2040 po cichej zapaści infrastruktury cyfrowej.
-
-* **Silnik:** Unity 3D
-* **Główna postać:** Kael Cross
-* **Platformy:** PC (Windows / Linux)
-* **Status:** Pre-Alpha // W produkcji
-
-### Architektura Strony Web
-Oficjalny hub studia został zaprojektowany w surowym stylu industrialno-brutalistycznym.
-* **Tech Stack:** HTML5 / Custom CSS3 (Scanlines, CRT Vignette, Glitch FX) / Vanilla JS (ES6+).
-* **Detekcja Języka:** Automatyczny silnik wykrywający język przeglądarki (`PL` / `EN`) z trwałą pamięcią wyboru (`localStorage`).
-* **Responsywność:** Dedykowany układ RWD dopasowany do monitorów ultrawide, laptopów i urządzeń mobilnych.
-
----
-
-## 🇬🇧 ENGLISH
-
-### About Studio & Project
-**Thorne Interactive** is an independent auteur game studio based in Poland. We focus on crafting mature, unfiltered gaming experiences where unforgiving gameplay mechanics tightly intertwine with heavy existential narrative.
-
-Our flagship project is **GODKILLER** — an open-world (2 km²) action title set in a raw 2040 universe following a silent digital infrastructure collapse.
-
-* **Engine:** Unity 3D
-* **Protagonist:** Kael Cross
-* **Platforms:** PC (Windows / Linux)
-* **Status:** Pre-Alpha // In Development
-
-### Web Architecture
-The official studio web hub is engineered with an industrial, brutalist aesthetic.
-* **Tech Stack:** HTML5 / Custom CSS3 (Scanlines, CRT Vignette, Glitch FX) / Vanilla JS (ES6+).
-* **Localization:** Automatic browser language auto-detection engine (`PL` / `EN`) with persistent state retention (`localStorage`).
-* **Responsiveness:** Fully responsive RWD layout optimized for ultrawide displays, laptops, and mobile screens.
-
----
-
-## 🛠️ TECH SPECIFICATIONS // WYMAGANIA PROJEKTU
-
-| Parametr / Parameter | Minimum (1080p / 30 FPS) | Recommended (1440p / 60 FPS) |
-| :--- | :--- | :--- |
-| **OS** | Windows 10/11 (64-bit) / Linux (Garuda/Arch) | Windows 11 (64-bit) |
-| **CPU** | Intel Core i3-6100 / AMD Ryzen 3 1200 | Intel Core i5 / AMD Ryzen 5 |
-| **GPU** | NVIDIA GTX 1050 Ti (4 GB) / AMD RX 560 | NVIDIA RTX 3060 (8/12 GB) |
-| **RAM** | 8 GB RAM DDR4 / DDR5 | 16 GB RAM DDR4 / DDR5 |
-
----
-
-## 📁 REPOSITORY STRUCTURE // STRUKTURA REPOZYTORIUM
-
-```text
-thorne-interactive/
-├── Obrazy/               # Grafiki, logotypy i materiały wizualne / Assets & media
-│   ├── logo.jpg
-│   └── baner.jpg
-├── index.html            # Główna struktura huba / Main HTML5 markup
-├── style.css             # Industrial/brutalist stylistyka / Master CSS stylesheet
-├── script.js            # Silnik autodetekcji PL/EN & UI / JS Controller
-└── README.md             # Dokumentacja projektu / Documentation
+THORNE INTERACTIVE // OFFICIAL WEB HUB _____ _   _  _____ _____ _   _ _____  _____ _   _ _____ ___________  ___  _____ _____ _____ _   _ _____ 
+|_   _| | | ||  _  | ___ \ \ | |  ___||  _  | | | |_   _|  ___| ___ \/ _ \/  __ \_   _|_   _| | | |  ___|
+  | | | |_| || | | | |_/ /  \| | |__  | | | | |_| | | | | |__ | |_/ / /_\ \ /  \/ | |   | | | | | | |__  
+  | | |  _  || | | |    /| . ` |  __| | | | |  _  | | | |  __||    /|  _  | |     | |   | | | | | |  __| 
+  | | | | | |\ \_/ / |\ \| |\  | |___ \ \_/ / | | | | | | |___| |\ \| | | | \__/\_| |_  \ \_/ / | | |___ 
+  \_/ \_| |_/ \___/\_| \_\_| \_/\____/ \___/\_| |_/ \_/ \____/\_| \_\_| |_/\____/\___/   \___/  \_/\____/ 
+INDEPENDENT AUTEUR GAME STUDIO // UNCOMPROMISING REALISM🌐 Official Web Hub: https://thorneinteractive.github.io/thorne-interactive/🇵🇱 POLSKI // DOKUMENTACJA PROJEKTU1. O Studio & FilozofiiThorne Interactive to niezależne, autorskie studio gier wideo powstałe w Polsce. Naszą misją jest przełamywanie utartych schematów branżowych poprzez tworzenie produkcji dla dojrzałego, wymagającego odbiorcy. Projektujemy gry, w których bezkompromisowa, surowa mechanika rozgrywki oraz wysoki poziom wyzwania ściśle łączą się z mroczną, egzystencjalną narracją i unikalną oprawą wizualną.2. Projekt GODKILLERGODKILLER to flagowy projekt studia. Jest to mroczna gra akcji w otwartym świecie o powierzchni 2 km², osadzona w dystopicznym uniwersum roku 2040 po cichej zapaści globalnej infrastruktury cyfrowej.🌍 Świat Gry (Lore):W roku 2040 świat nie przypomina neonowej utopii. To brutalna rzeczywistość po upadku cyfrowych sieci, gdzie zasoby energetyczne i serwerownie starych korporacji stały się nowymi relikwiami. W tym opuszczonym krajobrazie technologiczne klany walczą o dominację, tworząc cyfrowy feudalizm.👤 Główny Bohater:Gracz wciela się w postać Kaela Crossa — hartowanego życiem, bezwzględnego operatora i najemnika. Kael zostaje wciągnięty w wielowarstwowy spisek korporacyjny, odkrywając, że potężne bytności zarządzające resztkami dawnego świata — mianowane "cyfrowymi bogami" — to wyłącznie krwawa fikcja stworzona do kontroli resztek ludzkości.Silnik: Unity 3D (HDRP Custom Pipeline)Widok: TPP / FPP (Przełączalny system kamery)Platformy docelowe: PC (Windows 10/11 / Linux Garuda & Arch)Status: Faza koncepcyjna i wczesne stadium produkcji (Early Dev)Planowana Premiera: Wiosna 2027 (Wielkanoc / Maj 2027)3. Mapa Drogowa (Roadmap 2026 – 2027)[Q1-Q2 2026] ────> [Q3-Q4 2026] ────> [Q1 2027] ────────> [Q2 2027]
+  PRE-PRODUCTION     VERTICAL SLICE      CLOSED ALPHA        OFFICIAL LAUNCH
+  - Świat i Lore     - System walki      - Optymalizacja     - Premiera PC
+  - Model Kaela      - 0.5 km² świata    - Testy balansu     - Wiosna 2027
+  - Web Hub UI       - Sztuczna AI       - Dźwięk & SFX
+4. Architektura Strony Web HubOficjalny portal internetowy studia został stworzony z myślą o unikalnym klimacie przemysłowym i retro-futurystycznym (Brutalist Industrial Design).Technologie: HTML5, Custom CSS3 (z efektami CRT Scanlines, Vignette oraz Glitch FX), Vanilla JavaScript (ES6+).Automatyczna Lokalizacja: Dedykowany moduł detekcji języka przeglądarki (PL / EN) z zapisem preferencji w pamięci lokalnej (localStorage).Responsywność: Pełna obsługa ekranów Ultrawide, standardowych monitorów PC, tabletów oraz smartfonów.🇬🇧 ENGLISH // PROJECT DOCUMENTATION1. About Studio & PhilosophyThorne Interactive is an independent auteur game studio based in Poland. Our core philosophy revolves around breaking industry clichés to deliver unfiltered, mature gaming experiences. We build games where unforgiving mechanics, tactical depth, and high skill floors intertwine with heavy existential storytelling and raw visual design.2. Project GODKILLERGODKILLER is the studio's flagship title — a dark, open-world (2 km²) action game set in a bleak 2040 universe following a silent, catastrophic collapse of global digital infrastructure.🌍 World Building (Lore):The year 2040 is not a neon-drenched cyberpunk dream. It is a harsh post-collapse reality where power grids and ancient corporate server farms have become sacred relics. In this abandoned expanse, rogue tech clans wage war for control over old-world data, giving birth to a new digital feudalism.👤 Protagonist:Players take control of Kael Cross — a hardened, pragmatic operative caught in the middle of a corporate conspiracy. As Kael navigates this desolate territory, he uncovers that the omnipotent entities controlling the remaining networks — revereed as "digital gods" — are nothing more than a bloody illusion.Engine: Unity 3D (HDRP Custom Pipeline)Perspective: TPP / FPP Dynamic CameraTarget Platforms: PC (Windows 10/11 / Linux Garuda & Arch)Current Status: Pre-production & Core Feature PrototypingTarget Release Window: Spring 2027 (Easter / May 2027)3. Development Roadmap (2026 – 2027)[Q1-Q2 2026] ────> [Q3-Q4 2026] ────> [Q1 2027] ────────> [Q2 2027]
+  PRE-PRODUCTION     VERTICAL SLICE      CLOSED ALPHA        OFFICIAL LAUNCH
+  - World & Lore     - Combat Loop       - Optimization      - PC Release
+  - Kael 3D Model    - 0.5 km² World     - Balance Pass      - Spring 2027
+  - Web Hub UI       - Enemy AI          - Audio & SFX
+🛠️ TECH SPECIFICATIONS // WYMAGANIA HARDWARESpecyfikacja / SpecMinimum (1080p / 30 FPS)Zalecane / Recommended (1440p / 60 FPS)OSWindows 10/11 (64-bit) / LinuxWindows 11 (64-bit)ProcessorIntel Core i3-6100 / AMD Ryzen 3 1200Intel Core i5-11400 / AMD Ryzen 5 5600XGraphicsNVIDIA GTX 1050 Ti (4 GB) / AMD RX 560NVIDIA RTX 3060 (8/12 GB) / AMD RX 6700 XTRAM8 GB RAM DDR416 GB RAM DDR4 / DDR5DirectXVersion 12Version 12Storage15 GB SSD15 GB NVMe SSD📁 REPOSITORY STRUCTURE // STRUKTURA PLIKÓWthorne-interactive/
+├── Obrazy/               # Zasoby graficzne, logotypy, banery / Media & Visual Assets
+│   ├── logo.jpg          # Główny logotyp projektu GODKILLER
+│   └── baner.jpg         # Baner nagłówkowy studia Thorne Interactive
+├── index.html            # Główny plik struktury portalu / Main Web Hub Markup
+├── style.css             # Arkusz stylów (Brutalist & Scanline FX) / Master Stylesheet
+├── script.js            # Skrypt lokalizacji PL/EN oraz logiki UI / Main Controller
+└── README.md             # Dokumentacja techniczna i opisowa / Project Documentation
+🔒 LEGAL & COPYRIGHT // PRAWA AUTORSKIE========================================================================================
+   © 2026 – 2030 THORNE INTERACTIVE. WSZELKIE PRAWA ZASTRZEŻONE / ALL RIGHTS RESERVED.
+========================================================================================
+Wszelkie prawa do marki THORNE INTERACTIVE, projektu GODKILLER, postaci Kaela Crossa, surowca graficznego, kodu źródłowego, elementów uniwersum oraz oprawy wizualnej stanowią wyłączną własność intelektualną studia Thorne Interactive.Kopiowanie, redystrybucja, modyfikacja lub wykorzystywanie materiałów w celach komercyjnych bez pisemnej zgody autora jest bezwzględnie zabronione.THORNE INTERACTIVE // OFFICIAL WEB HUB _____ _   _  _____ _____ _   _ _____  _____ _   _ _____ ___________  ___  _____ _____ _____ _   _ _____ 
+|_   _| | | ||  _  | ___ \ \ | |  ___||  _  | | | |_   _|  ___| ___ \/ _ \/  __ \_   _|_   _| | | |  ___|
+  | | | |_| || | | | |_/ /  \| | |__  | | | | |_| | | | | |__ | |_/ / /_\ \ /  \/ | |   | | | | | | |__  
+  | | |  _  || | | |    /| . ` |  __| | | | |  _  | | | |  __||    /|  _  | |     | |   | | | | | |  __| 
+  | | | | | |\ \_/ / |\ \| |\  | |___ \ \_/ / | | | | | | |___| |\ \| | | | \__/\_| |_  \ \_/ / | | |___ 
+  \_/ \_| |_/ \___/\_| \_\_| \_/\____/ \___/\_| |_/ \_/ \____/\_| \_\_| |_/\____/\___/   \___/  \_/\____/ 
+INDEPENDENT AUTEUR GAME STUDIO // UNCOMPROMISING REALISM🌐 Official Web Hub: https://thorneinteractive.github.io/thorne-interactive/🇵🇱 POLSKI // DOKUMENTACJA PROJEKTU1. O Studio & FilozofiiThorne Interactive to niezależne, autorskie studio gier wideo powstałe w Polsce. Naszą misją jest przełamywanie utartych schematów branżowych poprzez tworzenie produkcji dla dojrzałego, wymagającego odbiorcy. Projektujemy gry, w których bezkompromisowa, surowa mechanika rozgrywki oraz wysoki poziom wyzwania ściśle łączą się z mroczną, egzystencjalną narracją i unikalną oprawą wizualną.2. Projekt GODKILLERGODKILLER to flagowy projekt studia. Jest to mroczna gra akcji w otwartym świecie o powierzchni 2 km², osadzona w dystopicznym uniwersum roku 2040 po cichej zapaści globalnej infrastruktury cyfrowej.🌍 Świat Gry (Lore):W roku 2040 świat nie przypomina neonowej utopii. To brutalna rzeczywistość po upadku cyfrowych sieci, gdzie zasoby energetyczne i serwerownie starych korporacji stały się nowymi relikwiami. W tym opuszczonym krajobrazie technologiczne klany walczą o dominację, tworząc cyfrowy feudalizm.👤 Główny Bohater:Gracz wciela się w postać Kaela Crossa — hartowanego życiem, bezwzględnego operatora i najemnika. Kael zostaje wciągnięty w wielowarstwowy spisek korporacyjny, odkrywając, że potężne bytności zarządzające resztkami dawnego świata — mianowane "cyfrowymi bogami" — to wyłącznie krwawa fikcja stworzona do kontroli resztek ludzkości.Silnik: Unity 3D (HDRP Custom Pipeline)Widok: TPP / FPP (Przełączalny system kamery)Platformy docelowe: PC (Windows 10/11 / Linux Garuda & Arch)Status: Faza koncepcyjna i wczesne stadium produkcji (Early Dev)Planowana Premiera: Wiosna 2027 (Wielkanoc / Maj 2027)3. Mapa Drogowa (Roadmap 2026 – 2027)[Q1-Q2 2026] ────> [Q3-Q4 2026] ────> [Q1 2027] ────────> [Q2 2027]
+  PRE-PRODUCTION     VERTICAL SLICE      CLOSED ALPHA        OFFICIAL LAUNCH
+  - Świat i Lore     - System walki      - Optymalizacja     - Premiera PC
+  - Model Kaela      - 0.5 km² świata    - Testy balansu     - Wiosna 2027
+  - Web Hub UI       - Sztuczna AI       - Dźwięk & SFX
+4. Architektura Strony Web HubOficjalny portal internetowy studia został stworzony z myślą o unikalnym klimacie przemysłowym i retro-futurystycznym (Brutalist Industrial Design).Technologie: HTML5, Custom CSS3 (z efektami CRT Scanlines, Vignette oraz Glitch FX), Vanilla JavaScript (ES6+).Automatyczna Lokalizacja: Dedykowany moduł detekcji języka przeglądarki (PL / EN) z zapisem preferencji w pamięci lokalnej (localStorage).Responsywność: Pełna obsługa ekranów Ultrawide, standardowych monitorów PC, tabletów oraz smartfonów.🇬🇧 ENGLISH // PROJECT DOCUMENTATION1. About Studio & PhilosophyThorne Interactive is an independent auteur game studio based in Poland. Our core philosophy revolves around breaking industry clichés to deliver unfiltered, mature gaming experiences. We build games where unforgiving mechanics, tactical depth, and high skill floors intertwine with heavy existential storytelling and raw visual design.2. Project GODKILLERGODKILLER is the studio's flagship title — a dark, open-world (2 km²) action game set in a bleak 2040 universe following a silent, catastrophic collapse of global digital infrastructure.🌍 World Building (Lore):The year 2040 is not a neon-drenched cyberpunk dream. It is a harsh post-collapse reality where power grids and ancient corporate server farms have become sacred relics. In this abandoned expanse, rogue tech clans wage war for control over old-world data, giving birth to a new digital feudalism.👤 Protagonist:Players take control of Kael Cross — a hardened, pragmatic operative caught in the middle of a corporate conspiracy. As Kael navigates this desolate territory, he uncovers that the omnipotent entities controlling the remaining networks — revereed as "digital gods" — are nothing more than a bloody illusion.Engine: Unity 3D (HDRP Custom Pipeline)Perspective: TPP / FPP Dynamic CameraTarget Platforms: PC (Windows 10/11 / Linux Garuda & Arch)Current Status: Pre-production & Core Feature PrototypingTarget Release Window: Spring 2027 (Easter / May 2027)3. Development Roadmap (2026 – 2027)[Q1-Q2 2026] ────> [Q3-Q4 2026] ────> [Q1 2027] ────────> [Q2 2027]
+  PRE-PRODUCTION     VERTICAL SLICE      CLOSED ALPHA        OFFICIAL LAUNCH
+  - World & Lore     - Combat Loop       - Optimization      - PC Release
+  - Kael 3D Model    - 0.5 km² World     - Balance Pass      - Spring 2027
+  - Web Hub UI       - Enemy AI          - Audio & SFX
+🛠️ TECH SPECIFICATIONS // WYMAGANIA HARDWARESpecyfikacja / SpecMinimum (1080p / 30 FPS)Zalecane / Recommended (1440p / 60 FPS)OSWindows 10/11 (64-bit) / LinuxWindows 11 (64-bit)ProcessorIntel Core i3-6100 / AMD Ryzen 3 1200Intel Core i5-11400 / AMD Ryzen 5 5600XGraphicsNVIDIA GTX 1050 Ti (4 GB) / AMD RX 560NVIDIA RTX 3060 (8/12 GB) / AMD RX 6700 XTRAM8 GB RAM DDR416 GB RAM DDR4 / DDR5DirectXVersion 12Version 12Storage15 GB SSD15 GB NVMe SSD📁 REPOSITORY STRUCTURE // STRUKTURA PLIKÓWthorne-interactive/
+├── Obrazy/               # Zasoby graficzne, logotypy, banery / Media & Visual Assets
+│   ├── logo.jpg          # Główny logotyp projektu GODKILLER
+│   └── baner.jpg         # Baner nagłówkowy studia Thorne Interactive
+├── index.html            # Główny plik struktury portalu / Main Web Hub Markup
+├── style.css             # Arkusz stylów (Brutalist & Scanline FX) / Master Stylesheet
+├── script.js            # Skrypt lokalizacji PL/EN oraz logiki UI / Main Controller
+└── README.md             # Dokumentacja techniczna i opisowa / Project Documentation
+🔒 LEGAL & COPYRIGHT // PRAWA AUTORSKIE========================================================================================
+   © 2026 – 2027 THORNE INTERACTIVE. WSZELKIE PRAWA ZASTRZEŻONE / ALL RIGHTS RESERVED.
+========================================================================================
+Wszelkie prawa do marki THORNE INTERACTIVE, projektu GODKILLER, postaci Kaela Crossa, surowca graficznego, kodu źródłowego, elementów uniwersum oraz oprawy wizualnej stanowią wyłączną własność intelektualną studia Thorne Interactive.Kopiowanie, redystrybucja, modyfikacja lub wykorzystywanie materiałów w celach komercyjnych bez pisemnej zgody autora jest bezwzględnie zabronione.
