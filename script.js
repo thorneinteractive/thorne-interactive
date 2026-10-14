@@ -1,6 +1,6 @@
 /* ==========================================================================
    THORNE INTERACTIVE - MASTER JS ENGINE (PL/EN AUTO-DETECT + UI CONTROLLER)
-   Wersja: 4.1 - Poprawione i naturalne tłumaczenia językowe (EN/PL)
+   Wersja: 4.4 - Usunięto sekcję kontaktową i odpowiadające jej klucze
    ========================================================================== */
 
 const translations = {
@@ -22,7 +22,6 @@ const translations = {
         nav_media: "[04. MEDIA]",
         nav_specs: "[05. SPECS]",
         nav_story: "[06. KULISY]",
-        nav_contact: "[07. KONTAKT]",
         hero_tagline: "AUTORSKIE STUDIO GIER // BEZKOMPROMISOWY REALIZM",
         hero_sub: "Wkraczamy w przestrzeń, gdzie technologia spotyka się z brutalnym, bezkompromisowym autorskim storytellingiem.",
         btn_explore: "SPRAWDŹ PROJEKT",
@@ -53,6 +52,12 @@ const translations = {
         rm_b_next: "NADCHODZĄCY",
         rm_b_plan: "PLANOWANY",
         rm_b_target: "CEL PREMIERY",
+        rm_phase_1: "FAZA 01 // Q1 2026",
+        rm_phase_2: "FAZA 02 // Q2 2026",
+        rm_phase_3: "FAZA 03 // Q3 - Q4 2026",
+        rm_phase_4: "FAZA 04 // Q1 - Q2 2027",
+        rm_phase_5: "FAZA 05 // PREMIERA",
+        rm_5_date: "PÓŹNE LATO / ZIMA 2027",
         rm_1_title: "Koncepcja, Strona WWW & Mapa 2 km²",
         rm_1_desc: "Uruchomienie oficjalnego serwera www studia Thorne Interactive. Opracowanie świata gry o powierzchni 2 km² obejmującego sektor przemysłowy (Rusty Lands), slumsy (Lowtown) i strefę korporacyjną (Vanguard).",
         rm_1_c1: "[OK] Oficjalny Hub Strony WWW Thorne Interactive",
@@ -109,18 +114,6 @@ const translations = {
         stat_auteur_label: "BEZ SZTUCZNEJ CENZURY I KOMPROMISÓW",
         story_subhead_3: "STATUS STUDIA",
         story_contact_desc: "Studio znajduje się w aktywnej fazie deweloperskiej. Kod źródłowy i materiały produkcyjne są sukcesywnie przesyłane do głównego repozytorium projektu.",
-        contact_heading: "KANAŁY KONTAKTOWE I SPECYFIKACJA",
-        contact_subhead: "BEZPOŚREDNI ADRES EMAIL",
-        contact_p1: "Masz pytania dotyczące projektu GODKILLER, chcesz dołączyć do zespołu lub nawiązać współpracę wydawniczą? Napisz bezpośrednio do twórców.",
-        form_label_name: "IDENTYFIKATOR / IMIĘ:",
-        form_label_email: "ADRES E-MAIL NADAWCY:",
-        form_label_subject: "TEMAT WIADOMOŚCI:",
-        opt_general: "Zapytanie Ogólne / Pytania",
-        opt_publisher: "Współpraca / Wydawca",
-        opt_media: "Prasa / Media / Redakcja",
-        opt_dev: "Dołączenie do zespołu / Dev",
-        form_label_msg: "TREŚĆ WIADOMOŚCI:",
-        form_btn_send: "WYŚLIJ WIADOMOŚĆ // DISPATCH",
         footer_rights: "© 2026 THORNE INTERACTIVE. WSZELKIE PRAWA ZASTRZEŻONE."
     },
     en: {
@@ -141,7 +134,6 @@ const translations = {
         nav_media: "[04. MEDIA]",
         nav_specs: "[05. SPECS]",
         nav_story: "[06. DEVLOG]",
-        nav_contact: "[07. CONTACT]",
         hero_tagline: "AUTEUR GAME STUDIO // UNCOMPROMISING REALISM",
         hero_sub: "Stepping into a space where technology meets brutal, uncompromising auteur storytelling.",
         btn_explore: "EXPLORE PROJECT",
@@ -172,6 +164,12 @@ const translations = {
         rm_b_next: "UPCOMING",
         rm_b_plan: "PLANNED",
         rm_b_target: "TARGET RELEASE",
+        rm_phase_1: "PHASE 01 // Q1 2026",
+        rm_phase_2: "PHASE 02 // Q2 2026",
+        rm_phase_3: "PHASE 03 // Q3 - Q4 2026",
+        rm_phase_4: "PHASE 04 // Q1 - Q2 2027",
+        rm_phase_5: "PHASE 05 // LAUNCH",
+        rm_5_date: "LATE SUMMER / WINTER 2027",
         rm_1_title: "Concept, Web Hub & 2 km² Map",
         rm_1_desc: "Launching the official Thorne Interactive web hub. Designing the 2 km² open world layout comprising the industrial sector (Rusty Lands), slums (Lowtown), and corporate sector (Vanguard).",
         rm_1_c1: "[OK] Official Thorne Interactive Web Hub",
@@ -226,21 +224,8 @@ const translations = {
         story_subhead_2: "HOW THE GAME IS MADE (DEV PROCESS)",
         story_p2: "The project is developed entirely independently in Poland using Unity 3D. Development includes custom combat physics, dedicated shader graphs, 3D models crafted from scratch in Blender, and an unsettling industrial soundtrack.",
         stat_auteur_label: "NO ARTIFICIAL CENSORSHIP & COMPROMISES",
-        stat_auteur_label: "NO ARTIFICIAL CENSORSHIP & COMPROMISES",
         story_subhead_3: "STUDIO STATUS",
         story_contact_desc: "The studio is in an active development phase. Source code and production assets are progressively pushed to the primary repository.",
-        contact_heading: "CONTACT CHANNELS & SPECIFICATIONS",
-        contact_subhead: "DIRECT EMAIL CONTACT",
-        contact_p1: "Have questions regarding the GODKILLER project, want to join the team, or establish publishing inquiries? Reach out directly via the form below.",
-        form_label_name: "IDENTIFIER / NAME:",
-        form_label_email: "SENDER EMAIL ADDRESS:",
-        form_label_subject: "MESSAGE SUBJECT:",
-        opt_general: "General Inquiry / Questions",
-        opt_publisher: "Publishing / Business Collaboration",
-        opt_media: "Press / Media / Editors",
-        opt_dev: "Join Team / Game Dev",
-        form_label_msg: "MESSAGE CONTENT:",
-        form_btn_send: "SEND MESSAGE // DISPATCH",
         footer_rights: "© 2026 THORNE INTERACTIVE. ALL RIGHTS RESERVED."
     }
 };
@@ -263,7 +248,6 @@ function isSupportedLang(lang) {
 
 function initSite() {
 
-    /* 1. Automatyczna Detekcja Języka (PL / EN) */
     const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase().startsWith('pl') ? 'pl' : 'en';
     const langToggleBtn = document.getElementById('language-toggle-btn');
     const urlLang = new URLSearchParams(window.location.search).get('lang');
@@ -305,44 +289,14 @@ function initSite() {
         updateLangButton();
     }
 
-    // Uruchomienie języka
     setLanguage(activeLang);
 
-    // Przełączanie po kliknięciu
     document.addEventListener('click', (event) => {
         if (event.target.closest('#language-toggle-btn')) {
             setLanguage(activeLang === 'pl' ? 'en' : 'pl');
         }
     });
 
-    /* 2. Obsługa Formularza Kontaktowego Terminalowego */
-    const contactForm = document.getElementById('contact-form');
-    const feedbackMsg = document.getElementById('form-feedback');
-
-    if (contactForm && feedbackMsg) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const name = document.getElementById('form-name').value;
-            const email = document.getElementById('form-email').value;
-
-            if (name && email) {
-                feedbackMsg.style.display = 'block';
-                feedbackMsg.style.color = '#00ff66';
-                feedbackMsg.innerHTML = activeLang === 'pl' 
-                    ? `// WIADOMOŚĆ PRZYJĘTA. ID: ${Math.floor(Math.random() * 899999 + 100000)}.<br>Dziękujemy, odpowiedź zostanie wysłana na adres ${email}.`
-                    : `// DISPATCH ACKNOWLEDGED. ID: ${Math.floor(Math.random() * 899999 + 100000)}.<br>Thank you. Reply will be dispatched to ${email}.`;
-
-                contactForm.reset();
-
-                setTimeout(() => {
-                    feedbackMsg.style.display = 'none';
-                }, 7000);
-            }
-        });
-    }
-
-    /* 3. Menu Mobilne */
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const mobileOverlay = document.getElementById('mobile-overlay');
     const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -369,7 +323,6 @@ function initSite() {
         });
     }
 
-    /* 4. Filtrowanie Mediów */
     const filterButtons = document.querySelectorAll('.filter-btn');
     const mediaCards = document.querySelectorAll('.media-card');
 
@@ -387,7 +340,6 @@ function initSite() {
         });
     });
 
-    /* 5. Efekty Przewijania & Pasek Postępu */
     const header = document.getElementById('top-header');
     const progressBar = document.getElementById('scroll-progress');
     const backToTop = document.getElementById('back-to-top');
@@ -410,7 +362,6 @@ function initSite() {
     }, { passive: true });
     onScrollFrame();
 
-    /* 6. Podświetlanie Sekcji i Animacje IntersectionObserver */
     if ('IntersectionObserver' in window) {
         const navLinks = document.querySelectorAll('.desktop-nav .nav-item');
         const navObserver = new IntersectionObserver((entries) => {
@@ -422,7 +373,7 @@ function initSite() {
             });
         }, { rootMargin: '-40% 0px -50% 0px' });
 
-        ['about', 'project', 'roadmap', 'media', 'specs', 'story', 'contact'].forEach(id => {
+        ['about', 'project', 'roadmap', 'media', 'specs', 'story'].forEach(id => {
             const section = document.getElementById(id);
             if (section) navObserver.observe(section);
         });
@@ -436,14 +387,14 @@ function initSite() {
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.section-heading, .stat-card, .roadmap-card, .media-card, .project-meta, .faq-item, .contact-info-col, .contact-form-wrapper')
+        document.querySelectorAll('.section-heading, .stat-card, .roadmap-card, .media-card, .project-meta, .faq-item, .contact-info-col')
             .forEach(el => {
                 el.classList.add('reveal');
                 revealObserver.observe(el);
             });
     }
 
-    console.log('%c THORNE INTERACTIVE %c v4.1 // Core Dispatch Ready ', 'background:#000;color:#fff;font-weight:bold;padding:4px;', 'background:#111;color:#00ff66;padding:4px;');
+    console.log('%c THORNE INTERACTIVE %c v4.4 // Core Dispatch Ready ', 'background:#000;color:#fff;font-weight:bold;padding:4px;', 'background:#111;color:#00ff66;padding:4px;');
 }
 
 if (document.readyState === 'loading') {
