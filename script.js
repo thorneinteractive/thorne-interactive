@@ -1,6 +1,6 @@
 /* ==========================================================================
    THORNE INTERACTIVE - MASTER JS ENGINE (PL/EN AUTO-DETECT + UI CONTROLLER)
-   Wersja: 4.0 - Dodanie 5 okienek Roadmapy, powiadomienia e-mail i więcej efektów
+   Wersja: 4.1 - Poprawione i naturalne tłumaczenia językowe (EN/PL)
    ========================================================================== */
 
 const translations = {
@@ -37,14 +37,14 @@ const translations = {
         stat_3: "NIEZALEŻNA WIZJA AUTORSKA",
         project_heading: "FLAGOWY PROJEKT: GODKILLER",
         badge_dev_status: "FAZA PRE-ALPHA // W PRODUKCJI",
-        project_desc: "Rok 2040. Świat po cichej zapaści infrastrukturalnej. Wcielasz się w Kaela Crossa – jednostkę operacyjną uwikłaną w spisek korporacyjny, która odkrywa, że bogowie współczesnego świata cyfrowego to krwawa fikcja.",
+        project_desc: "Świat po wojnach z AI w stanie New State (NS) wzorowanym na Nowym Jorku i Manhattanie. Trzy zróżnicowane dzielnice: industrialne Rusty Lands, surowe Lowtown oraz sterylny Vanguard, w którym Velen sprawuje kontrolę.",
         feat_1: "Bezwzględny system walki oparty na fizyce i ciosach krytycznych.",
         feat_2: "Brutalna, nieliniowa fabuła z trudnymi wyborami moralnymi.",
         feat_3: "Industrialna ścieżka dźwiękowa budująca klaustrofobiczny klimat.",
         meta_engine: "SILNIK",
         meta_platform: "PLATFORMA",
         meta_setting: "UNIWERSUM",
-        meta_setting_val: "Rok 2040 // Po cichej zapaści cyfrowej",
+        meta_setting_val: "Stan New State (NS) // po wojnach z AI",
         meta_world: "ŚWIAT",
         meta_world_val: "Otwarty, 2 km² (Rusty Lands, Lowtown, Vanguard)",
         roadmap_heading: "HARMONOGRAM ROZWOJU (ROADMAP 2026-2027)",
@@ -94,27 +94,26 @@ const translations = {
         td_ram: "PAMIĘĆ RAM",
         faq_heading: "CZĘSTE PYTANIA",
         faq_q1: "Jakie są główne założenia fabularne Godkillera?",
-        faq_a1: "Gra opowiada historię Kaela Crossa w 2040 roku. To mroczna, egzystencjalna opowieść o walce z cyfrowymi klanami w opuszczonym, otwartym świecie o powierzchni 2 km².",
+        faq_a1: "Gra opowiada historię w stanie New State (NS) po wojnach z AI w otwartym świecie o powierzchni 2 km² z podziałem na Rusty Lands, Lowtown i Vanguard.",
         faq_q2: "Na jakim silniku i jak powstaje gra?",
-        faq_a2: "Godkiller powstaje w silniku Unity 3D z wykorzystaniem autorskich skryptów C#, modeli 3D z Blendera oraz autorskich systemów optymalizacji terenu.",
+        faq_a2: "Godkiller powstaje w silniku Unity 3D z wykorzystaniem autorskich skryptów C#, modeli 3D z Blendera oraz autorskich systemów optymalizacji terenu (LOD i Occlusion Culling).",
         faq_q3: "Czy gra będzie cenzurowana?",
         faq_a3: "Nie. Gra projektowana jest z myślą o dojrzałym odbiorcy (R-Rated) – bez ugrzeczniania i bez ustępstw komercyjnych.",
         faq_q4: "Kiedy nastąpi premiera gry?",
-        faq_a4: "Premiera zaplanowana jest na przełom późnego lata / zimy 2027 roku na komputerach osobistych (PC).",
+        faq_a4: "Premiera zaplanowana jest na późne lato / zimę 2027 roku na komputerach osobistych (PC).",
         story_heading: "FABUŁA I PROCES POWSTAWANIA",
-        story_subhead_1: "UNIWERSUM I FABUŁA GODKILLERA",
-        story_p1: "Świat roku 2040 to nie cyberpunkowa utopia z neonami, ale surowa rzeczywistość po cichej zapaści infrastruktury cyfrowej. Główny bohater, Kael Cross, trafia w sam środek konfliktu między niedobitkami ludzkości a technologicznymi klanami rywalizującymi o zasoby starych serwerowni.",
+        story_subhead_1: "UNIWERSUM I FABUŁA GODKILLER",
+        story_p1: "Świat stanu New State (NS) to surowa rzeczywistość po wojnach z AI. Postacie takie jak Kael mieszkają w Lowtown, ponieważ nie mają sektorowej wizy wjazdowej do elitarnego Vanguard, gdzie urzęduje Velen.",
         story_subhead_2: "JAK POWSTAJE GRA? (PROCES DEWELOPERSKI)",
-        story_p2: "Projekt tworzony jest w pełni niezależnie w Polsce na silniku Unity 3D. Prace obejmują autorski model fizyki walki, dedykowane shader-graphy, trójwymiarowe modele tworzone od zera w Blenderze oraz industrialną ścieżkę dźwiękową budującą niepokojącą atmosferę.",
+        story_p2: "Projekt tworzony jest w pełni niezależnie w Polsce na silniku Unity 3D. Prace obejmują autorski model fizyki walki, dedykowane shader-graphy, trójwymiarowe modele tworzone od zera w Blenderze oraz industrialną ścieżkę dźwiękową.",
         stat_auteur_label: "BEZ SZTUCZNEJ CENZURY I KOMPROMISÓW",
         story_subhead_3: "STATUS STUDIA",
         story_contact_desc: "Studio znajduje się w aktywnej fazie deweloperskiej. Kod źródłowy i materiały produkcyjne są sukcesywnie przesyłane do głównego repozytorium projektu.",
-        contact_heading: "KANAŁY KONTAKTOWE I WYDUSZENIE SPECYFIKACJI",
+        contact_heading: "KANAŁY KONTAKTOWE I SPECYFIKACJA",
         contact_subhead: "BEZPOŚREDNI ADRES EMAIL",
         contact_p1: "Masz pytania dotyczące projektu GODKILLER, chcesz dołączyć do zespołu lub nawiązać współpracę wydawniczą? Napisz bezpośrednio do twórców.",
-        btn_copy: "KOPIUJ MAIL",
         form_label_name: "IDENTYFIKATOR / IMIĘ:",
-        form_label_email: "ADRES E-MAIL NADACY:",
+        form_label_email: "ADRES E-MAIL NADAWCY:",
         form_label_subject: "TEMAT WIADOMOŚCI:",
         opt_general: "Zapytanie Ogólne / Pytania",
         opt_publisher: "Współpraca / Wydawca",
@@ -150,52 +149,52 @@ const translations = {
         scroll_down: "SCROLL // DISCOVER TRUTH",
         about_heading: "STUDIO PHILOSOPHY",
         about_subhead: "WE ARE NOT A CORPORATION. WE ARE AUTEURS.",
-        about_p1: "Thorne Interactive was born out of a rebellion against sterile, calculated mass production in modern gamedev. We focus on crafting mature experiences where gameplay mechanics intertwine tightly with heavy, existential narrative.",
+        about_p1: "Thorne Interactive was born out of a rebellion against sterile, calculated mass production in modern gamedev. We focus on crafting mature experiences where gameplay mechanics intertwine tightly with heavy, existential narratives.",
         about_p2: "Our projects are built in Unity by a passionate team based in Poland. We take no shortcuts, enforce no artificial censorship, and bend to no market trends.",
         stat_1: "FLAGSHIP PROJECT (GODKILLER)",
         stat_2: "OPEN GAME WORLD",
         stat_3: "INDEPENDENT AUTEUR VISION",
         project_heading: "FLAGSHIP PROJECT: GODKILLER",
         badge_dev_status: "PRE-ALPHA STAGE // IN DEVELOPMENT",
-        project_desc: "Year 2040. A world after a silent infrastructure collapse. You play as Kael Cross – an operative entangled in a corporate conspiracy who discovers that the gods of the digital world are a bloody fiction.",
+        project_desc: "Set in the New State (NS) post-AI-war world inspired by New York and Manhattan. Three distinct districts: industrial Rusty Lands, gritty Lowtown, and sterile Vanguard ruled by Velen.",
         feat_1: "Unforgiving physics-driven combat system with critical strikes.",
         feat_2: "Brutal, non-linear storyline featuring difficult moral choices.",
         feat_3: "Industrial soundtrack building a claustrophobic atmosphere.",
         meta_engine: "ENGINE",
         meta_platform: "PLATFORM",
         meta_setting: "SETTING",
-        meta_setting_val: "Year 2040 // After digital collapse",
+        meta_setting_val: "New State (NS) // Post-AI Wars",
         meta_world: "WORLD",
-        meta_world_val: "Open world, 2 km² (Rusty Lands, Lowtown, Vanguard)",
-        roadmap_heading: "DEVELOPMENT ROADMAP 2026-2027",
-        rm_curr_stage: "CURRENTLY AT Q1 2026 PHASE [CONCEPT, WEB HUB & 2 KM² MAP]",
+        meta_world_val: "Open World, 2 km² (Rusty Lands, Lowtown, Vanguard)",
+        roadmap_heading: "DEVELOPMENT ROADMAP (2026-2027)",
+        rm_curr_stage: "CURRENT PHASE: Q1 2026 [CONCEPT, WEB HUB & 2 KM² MAP]",
         rm_b_current: "ACTIVE (YOU ARE HERE)",
         rm_b_next: "UPCOMING",
         rm_b_plan: "PLANNED",
         rm_b_target: "TARGET RELEASE",
         rm_1_title: "Concept, Web Hub & 2 km² Map",
-        rm_1_desc: "Launching the official Thorne Interactive studio web hub. Designing the 2 km² world layout consisting of Industrial sector (Rusty Lands), slums (Lowtown), and corporate zone (Vanguard).",
+        rm_1_desc: "Launching the official Thorne Interactive web hub. Designing the 2 km² open world layout comprising the industrial sector (Rusty Lands), slums (Lowtown), and corporate sector (Vanguard).",
         rm_1_c1: "[OK] Official Thorne Interactive Web Hub",
-        rm_1_c2: "[OK] 2040 universe concept & visual identity",
-        rm_1_c3: "[IN PROGRESS] 2 km² Terrain architecture in Unity",
-        rm_2_title: "Story Arc, Lore & Core Files",
-        rm_2_desc: "Expanding the main scenario (Velen, Kael Cross, Dr. Gero). Preparing initial asset file drops, NPC behavior loops, and configuring custom AI scripts and movement physics.",
+        rm_1_c2: "[OK] New State universe concept & visual identity",
+        rm_1_c3: "[IN PROGRESS] 2 km² terrain architecture in Unity",
+        rm_2_title: "Story Outline, Lore & System Files",
+        rm_2_desc: "Expanding the main scenario (Velen, Kael Cross, Dr. Gero). Preparing initial asset file drops, NPC crowd behavior loops, and custom AI/movement physics configuration.",
         rm_2_c1: "[ ] Full dialogue script & decision trees",
         rm_2_c2: "[ ] Core asset files integration in repository",
         rm_2_c3: "[ ] Sidewalk pathfinding and crowd system for NPCs",
         rm_3_title: "Unity Prototyping, LOD & C# Scripts",
-        rm_3_desc: "Intense prototype development in Unity 3D engine. 3D modeling in Blender, C# combat scripts, Level of Detail (LOD) implementation and Occlusion Culling for stable 60 FPS.",
+        rm_3_desc: "Intensive prototype development in Unity 3D engine. Crafting 3D models in Blender, programming C# combat scripts, LOD implementation, and Occlusion Culling for stable 60 FPS.",
         rm_3_c1: "[ ] Melee and firearm combat physics tests",
         rm_3_c2: "[ ] Terrain rendering optimization (Occlusion Culling)",
         rm_3_c3: "[ ] Industrial soundtrack and audio SFX",
         rm_4_title: "Pre-Alpha Phase & Stress Testing",
-        rm_4_desc: "Closed Pre-Alpha stage. Merging code systems into a fluid build, gameplay balancing, testing on Linux architecture, and polishing mature storytelling.",
+        rm_4_desc: "Closed Pre-Alpha stage. Merging code systems into a fluid build, gameplay balancing, testing on Linux architecture, and polishing the uncompromising narrative.",
         rm_4_c1: "[ ] First official gameplay trailer",
-        rm_4_c2: "[ ] Pre-Alpha leaks testing & RAM/GPU optimization",
+        rm_4_c2: "[ ] Pre-Alpha test builds & RAM/GPU optimization",
         rm_4_c3: "[ ] HUD interface & world reaction polishing",
         rm_5_title: "GODKILLER Game Release (PC)",
-        rm_5_desc: "Release of GODKILLER full version on PC (Windows / Linux). Delivering an uncompromising, mature action game with no censorship and no commercial shortcuts.",
-        rm_5_c1: "[ ] PC Distribution build (Steam / Standalone)",
+        rm_5_desc: "Official release of GODKILLER on PC (Windows / Linux). Delivering an uncompromising, mature action game with no artificial sugar-coating and no censorship.",
+        rm_5_c1: "[ ] PC distribution build (Steam / Standalone)",
         rm_5_c2: "[ ] Post-launch support and community patches",
         media_heading: "MEDIA & ASSETS",
         filt_all: "ALL",
@@ -213,26 +212,26 @@ const translations = {
         td_gpu: "GRAPHICS CARD (GPU)",
         td_ram: "RAM MEMORY",
         faq_heading: "FAQ",
-        faq_q1: "What are the main story premises of Godkiller?",
-        faq_a1: "The game follows Kael Cross in 2040. It is a dark, existential story about fighting digital clans in a deserted 2 km² open world.",
+        faq_q1: "What are the core narrative premises of Godkiller?",
+        faq_a1: "The game is set in the New State (NS) after the AI wars within a 2 km² open world split into Rusty Lands, Lowtown, and Vanguard.",
         faq_q2: "What engine and tools are used to build the game?",
-        faq_a2: "Godkiller is developed in Unity 3D using custom C# scripts, Blender 3D models, and proprietary terrain optimization systems.",
+        faq_a2: "Godkiller is developed in Unity 3D using custom C# scripts, Blender 3D models, and proprietary terrain optimization systems (LOD & Occlusion Culling).",
         faq_q3: "Will the game be censored?",
         faq_a3: "No. The game is designed for a mature audience (R-Rated) – with no dumbing down and no commercial compromises.",
         faq_q4: "When will the game be released?",
         faq_a4: "The launch is targeted for Late Summer / Winter 2027 on PC.",
         story_heading: "STORY & DEVELOPMENT PROCESS",
         story_subhead_1: "THE GODKILLER UNIVERSE & STORY",
-        story_p1: "The world of 2040 is not a neon cyberpunk utopia, but a raw reality after a quiet digital infrastructure collapse. The protagonist, Kael Cross, finds himself in the middle of a conflict between the remnants of humanity and tech clans competing for server resources.",
+        story_p1: "The New State (NS) world is a raw reality following the AI wars. Characters like Kael reside in Lowtown because they lack the sector visa required to enter elite Vanguard, where Velen reigns.",
         story_subhead_2: "HOW THE GAME IS MADE (DEV PROCESS)",
-        story_p2: "The project is developed independently in Poland using Unity 3D. Development includes custom combat physics, dedicated shader graphs, 3D models crafted from scratch in Blender, and an unsettling industrial soundtrack.",
+        story_p2: "The project is developed entirely independently in Poland using Unity 3D. Development includes custom combat physics, dedicated shader graphs, 3D models crafted from scratch in Blender, and an unsettling industrial soundtrack.",
+        stat_auteur_label: "NO ARTIFICIAL CENSORSHIP & COMPROMISES",
         stat_auteur_label: "NO ARTIFICIAL CENSORSHIP & COMPROMISES",
         story_subhead_3: "STUDIO STATUS",
         story_contact_desc: "The studio is in an active development phase. Source code and production assets are progressively pushed to the primary repository.",
-        contact_heading: "CONTACT CHANNELS & SPECIFICATIONS DISPATCH",
-        contact_subhead: "DIRECT EMAIL ADDRESS",
-        contact_p1: "Have questions regarding the GODKILLER project, want to join the team, or establish publishing inquiries? Reach out directly to the creators.",
-        btn_copy: "COPY EMAIL",
+        contact_heading: "CONTACT CHANNELS & SPECIFICATIONS",
+        contact_subhead: "DIRECT EMAIL CONTACT",
+        contact_p1: "Have questions regarding the GODKILLER project, want to join the team, or establish publishing inquiries? Reach out directly via the form below.",
         form_label_name: "IDENTIFIER / NAME:",
         form_label_email: "SENDER EMAIL ADDRESS:",
         form_label_subject: "MESSAGE SUBJECT:",
@@ -316,32 +315,7 @@ function initSite() {
         }
     });
 
-    /* 2. Kopiowanie Adresu Email do Schowka */
-    const copyEmailBtn = document.getElementById('btn-copy-email');
-    if (copyEmailBtn) {
-        copyEmailBtn.addEventListener('click', () => {
-            const emailText = "contact@thorneinteractive.com";
-            
-            // Rezerwowy clipboard komendą
-            const dummy = document.createElement("input");
-            document.body.appendChild(dummy);
-            dummy.value = emailText;
-            dummy.select();
-            document.execCommand("copy");
-            document.body.removeChild(dummy);
-
-            const origText = copyEmailBtn.textContent;
-            copyEmailBtn.textContent = activeLang === 'pl' ? "SKOPIOWANO!" : "COPIED!";
-            copyEmailBtn.classList.add('copied');
-
-            setTimeout(() => {
-                copyEmailBtn.textContent = origText;
-                copyEmailBtn.classList.remove('copied');
-            }, 2500);
-        });
-    }
-
-    /* 3. Obsługa Formularza Kontaktowego Terminalowego */
+    /* 2. Obsługa Formularza Kontaktowego Terminalowego */
     const contactForm = document.getElementById('contact-form');
     const feedbackMsg = document.getElementById('form-feedback');
 
@@ -368,7 +342,7 @@ function initSite() {
         });
     }
 
-    /* 4. Menu Mobilne */
+    /* 3. Menu Mobilne */
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const mobileOverlay = document.getElementById('mobile-overlay');
     const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -395,7 +369,7 @@ function initSite() {
         });
     }
 
-    /* 5. Filtrowanie Mediów */
+    /* 4. Filtrowanie Mediów */
     const filterButtons = document.querySelectorAll('.filter-btn');
     const mediaCards = document.querySelectorAll('.media-card');
 
@@ -413,7 +387,7 @@ function initSite() {
         });
     });
 
-    /* 6. Efekty Przewijania & Pasek Postępu */
+    /* 5. Efekty Przewijania & Pasek Postępu */
     const header = document.getElementById('top-header');
     const progressBar = document.getElementById('scroll-progress');
     const backToTop = document.getElementById('back-to-top');
@@ -436,7 +410,7 @@ function initSite() {
     }, { passive: true });
     onScrollFrame();
 
-    /* 7. Podświetlanie Sekcji i Animacje IntersectionObserver */
+    /* 6. Podświetlanie Sekcji i Animacje IntersectionObserver */
     if ('IntersectionObserver' in window) {
         const navLinks = document.querySelectorAll('.desktop-nav .nav-item');
         const navObserver = new IntersectionObserver((entries) => {
@@ -462,14 +436,14 @@ function initSite() {
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.section-heading, .stat-card, .roadmap-card, .media-card, .project-meta, .faq-item, .contact-info-box, .contact-form-wrapper')
+        document.querySelectorAll('.section-heading, .stat-card, .roadmap-card, .media-card, .project-meta, .faq-item, .contact-info-col, .contact-form-wrapper')
             .forEach(el => {
                 el.classList.add('reveal');
                 revealObserver.observe(el);
             });
     }
 
-    console.log('%c THORNE INTERACTIVE %c v4.0 // Core Dispatch Ready ', 'background:#000;color:#fff;font-weight:bold;padding:4px;', 'background:#111;color:#00ff66;padding:4px;');
+    console.log('%c THORNE INTERACTIVE %c v4.1 // Core Dispatch Ready ', 'background:#000;color:#fff;font-weight:bold;padding:4px;', 'background:#111;color:#00ff66;padding:4px;');
 }
 
 if (document.readyState === 'loading') {
