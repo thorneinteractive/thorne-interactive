@@ -3,321 +3,542 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THORNE INTERACTIVE | Brutalist Game Studio</title>
+    <title>THORNE INTERACTIVE // OFFICIAL AUTEUR STUDIO</title>
+    <meta name="description" content="Thorne Interactive - Independent Auteur Game Studio. No censorship, brutal worldbuilding, uncompromising vision.">
+    <meta name="theme-color" content="#030303">
     
-    <!-- Fonts & Icons -->
+    <!-- Arkusz stylów CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts: JetBrains Mono oraz Oswald -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700;800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,700;1,400&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
-
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-theme="dark">
 
-    <!-- NAVIGATION HEADER -->
-    <header class="header">
-        <div class="container header-container">
-            <a href="#" class="brand-logo">
-                <div class="logo-box">TI</div>
-                <div class="logo-text">
-                    <span class="glitch-text" data-text="THORNE">THORNE</span>
-                    <span class="sub-text">INTERACTIVE</span>
+    <!-- Link dostępności i pasek postępu przewijania -->
+    <a href="#about" class="skip-link" data-i18n="skip_link">PRZEJDŹ DO TREŚCI</a>
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- Efekty wizualne nakładki (Scanlines i CRT Grid) -->
+    <div class="scanlines-overlay"></div>
+    <div class="vignette-overlay"></div>
+    <div class="crt-noise"></div>
+
+    <!-- Główny Panel Nawigacyjny -->
+    <header class="site-header" id="top-header">
+        <div class="header-container">
+            <div class="logo-group">
+                <a href="#hero" class="logo-link">
+                    <img src="Obrazy/logo.jpg" alt="Thorne Interactive Logo" class="header-logo" data-i18n-alt="alt_logo">
+                </a>
+                <div class="studio-identifier">
+                    <span class="studio-name">THORNE INTERACTIVE</span>
+                    <span class="sys-status"><span class="status-dot"></span> // SYS_ACTIVE_OK</span>
                 </div>
-            </a>
+            </div>
 
-            <nav class="nav-menu">
-                <a href="#about" data-i18n="nav-about">// STUDIO</a>
-                <a href="#roadmap" data-i18n="nav-roadmap">// ROADMAP</a>
-                <a href="#contact" data-i18n="nav-contact">// KONTAKT</a>
+            <!-- Nawigacja desktopowa -->
+            <nav class="desktop-nav">
+                <a href="#about" class="nav-item" data-i18n="nav_about">[01. STUDIO]</a>
+                <a href="#project" class="nav-item" data-i18n="nav_project">[02. GODKILLER]</a>
+                <a href="#roadmap" class="nav-item" data-i18n="nav_roadmap">[03. ROADMAP]</a>
+                <a href="#media" class="nav-item" data-i18n="nav_media">[04. MEDIA]</a>
+                <a href="#specs" class="nav-item" data-i18n="nav_specs">[05. SPECS]</a>
+                <a href="#story" class="nav-item" data-i18n="nav_story">[06. KULISY]</a>
+                <a href="#contact" class="nav-item" data-i18n="nav_contact">[07. KONTAKT]</a>
             </nav>
 
-            <div class="header-actions">
-                <div class="lang-switch">
-                    <button id="lang-pl" onclick="setLanguage('pl')" class="lang-btn active">PL</button>
-                    <button id="lang-en" onclick="setLanguage('en')" class="lang-btn">EN</button>
-                </div>
-                <a href="#contact" class="btn btn-primary nav-btn" data-i18n="nav-join">
-                    <i class="fa-solid fa-terminal"></i> DOŁĄCZ DO NAS
-                </a>
+            <!-- Narzędzia nagłówka (Przełącznik języka + Hamburger) -->
+            <div class="header-tools">
+                <button id="language-toggle-btn" class="lang-switch-btn" type="button" aria-label="Toggle Language">
+                    <span class="lang-indicator">PL</span> / <span class="lang-muted">EN</span>
+                </button>
+                
+                <button id="hamburger-btn" class="hamburger-menu" type="button" aria-label="Open Menu" aria-expanded="false" aria-controls="mobile-overlay">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero-section">
+    <!-- Mobilne Menu Rozwijane -->
+    <div class="mobile-menu-overlay" id="mobile-overlay">
+        <div class="mobile-menu-content">
+            <nav class="mobile-nav-links">
+                <a href="#about" class="mobile-link" data-i18n="nav_about">01. STUDIO</a>
+                <a href="#project" class="mobile-link" data-i18n="nav_project">02. GODKILLER</a>
+                <a href="#roadmap" class="mobile-link" data-i18n="nav_roadmap">03. ROADMAP</a>
+                <a href="#media" class="mobile-link" data-i18n="nav_media">04. MEDIA</a>
+                <a href="#specs" class="mobile-link" data-i18n="nav_specs">05. SPECS</a>
+                <a href="#story" class="mobile-link" data-i18n="nav_story">06. KULISY</a>
+                <a href="#contact" class="mobile-link" data-i18n="nav_contact">07. KONTAKT</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Sekcja Hero (Baner Główny) -->
+    <section id="hero" class="hero-section">
+        <div class="hero-banner-wrapper">
+            <img src="Obrazy/baner.jpg" alt="Thorne Interactive Main Banner" class="hero-bg-image" data-i18n-alt="alt_banner">
+            <div class="hero-dark-mask"></div>
+        </div>
+        <div class="hero-content-container">
+            <div class="terminal-tagline">
+                <span class="blink-cursor">&gt;</span> <span data-i18n="hero_tagline">AUTORSKIE STUDIO GIER // BEZKOMPROMISOWY REALIZM</span>
+            </div>
+            <h1 class="main-title glitch-effect" data-text="THORNE INTERACTIVE">THORNE INTERACTIVE</h1>
+            <p class="hero-subtitle" data-i18n="hero_sub">Wkraczamy w przestrzeń, gdzie technologia spotyka się z brutalnym, bezkompromisowym autorskim storytellingiem.</p>
+            <div class="hero-cta-group">
+                <a href="#project" class="btn-brutalist" data-i18n="btn_explore">SPRAWDŹ PROJEKT</a>
+                <a href="#roadmap" class="btn-brutalist-outline" data-i18n="btn_roadmap">ROADMAP 2026-2027</a>
+            </div>
+        </div>
+        <div class="scroll-down-indicator">
+            <span data-i18n="scroll_down">SCROLL // ODKRYJ PRAWDĘ</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Pasek ticker -->
+    <div class="ticker-strip" aria-hidden="true">
+        <div class="ticker-track">
+            <div class="ticker-group">
+                <span>GODKILLER</span><span class="sep">//</span>
+                <span>NEW STATE (NS)</span><span class="sep">//</span>
+                <span>RUSTY LANDS</span><span class="sep">//</span>
+                <span>LOWTOWN</span><span class="sep">//</span>
+                <span>VANGUARD</span><span class="sep">//</span>
+                <span>UNITY ENGINE</span><span class="sep">//</span>
+            </div>
+            <div class="ticker-group">
+                <span>GODKILLER</span><span class="sep">//</span>
+                <span>NEW STATE (NS)</span><span class="sep">//</span>
+                <span>RUSTY LANDS</span><span class="sep">//</span>
+                <span>LOWTOWN</span><span class="sep">//</span>
+                <span>VANGUARD</span><span class="sep">//</span>
+                <span>UNITY ENGINE</span><span class="sep">//</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sekcja 01: O Studio -->
+    <section id="about" class="section-block">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="ping-dot"></span>
-                    <span data-i18n="hero-tag">PROJEKT W BUDOWIE [2026-2027]</span>
+            <div class="section-heading">
+                <span class="sec-number">01 //</span>
+                <h2 data-i18n="about_heading">FILOZOFIA STUDIO</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text-col">
+                    <h3 class="brutalist-subheading" data-i18n="about_subhead">NIE JESTEŚMY KORPORACJĄ. JESTEŚMY AUTORAMI.</h3>
+                    <p class="text-body" data-i18n="about_p1">
+                        Thorne Interactive powstało z buntu przeciwko sterylnej, wykalkulowanej masowej produkcyjności współczesnego gamedevu. Skupiamy się na tworzeniu doświadczeń dla dojrzałego odbiorcy, w których mechanika gry ściśle współgra z ciężką, egzystencjalną narracją.
+                    </p>
+                    <p class="text-body" data-i18n="about_p2">
+                        Nasze projekty budowane są na silniku Unity przez zespół pasjonatów w Polsce. Nie idziemy na skróty, nie stosujemy sztucznej cenzury i nie uginamy się pod trendami rynkowymi.
+                    </p>
                 </div>
-                <h1 class="hero-title" data-i18n="hero-title">
-                    TWORZYMY INDUSTRIALNE ŚWIATY BEZ KOMPROMISÓW.
-                </h1>
-                <p class="hero-desc" data-i18n="hero-desc">
-                    Niezależne studio tworzące gęste, imersyjne gry w klimacie dark sci-fi oraz brutalizmu. Połączenie głębokiej mechaniki z surową oprawą wizualną.
-                </p>
-                <div class="hero-actions">
-                    <a href="#roadmap" class="btn btn-primary">
-                        <i class="fa-solid fa-map"></i> <span data-i18n="hero-btn-roadmap">ZOBACZ ROADMAPĘ</span>
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <i class="fa-solid fa-envelope"></i> <span data-i18n="hero-btn-contact">SKONTAKTUJ SIĘ</span>
-                    </a>
+                <div class="about-stats-col">
+                    <div class="stat-card">
+                        <span class="stat-num">01</span>
+                        <span class="stat-label" data-i18n="stat_1">FLAGOWY PROJEKT (GODKILLER)</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-num">2 KM²</span>
+                        <span class="stat-label" data-i18n="stat_2">OTWARTY ŚWIAT GRY</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-num">100%</span>
+                        <span class="stat-label" data-i18n="stat_3">NIEZALEŻNA WIZJA AUTORSKA</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ROADMAP SECTION -->
-    <section id="roadmap" class="roadmap-section">
+    <!-- Sekcja 02: Flagowy Projekt (Godkiller) -->
+    <section id="project" class="section-block border-top">
         <div class="container">
+            <div class="section-heading">
+                <span class="sec-number">02 //</span>
+                <h2 data-i18n="project_heading">FLAGOWY PROJEKT: GODKILLER</h2>
+            </div>
             
-            <div class="section-header">
-                <div>
-                    <p class="section-tag">// PROJECT TIMELINE</p>
-                    <h2 class="section-title" data-i18n="roadmap-title">ROADMAPA PROJEKTU</h2>
-                </div>
-                <p class="section-desc" data-i18n="roadmap-subtitle">
-                    Pięć kluczowych faz rozwoju gry od pierwszych konceptów architektonicznych po oficjalną premierę.
-                </p>
-            </div>
-
-            <!-- Global Progress Bar -->
-            <div class="progress-box">
-                <div class="progress-info">
-                    <span data-i18n="progress-status">STATUS CAŁKOWITY: FAZA 1 W TOKU</span>
-                    <span class="progress-percent">20%</span>
-                </div>
-                <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" style="width: 20%;"></div>
-                </div>
-            </div>
-
-            <!-- 5 Roadmap Cards Grid -->
-            <div class="roadmap-grid">
-                
-                <!-- Q1 2026 (Current) -->
-                <div class="roadmap-card current cyber-corner">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-active" data-i18n="q1-tag">OBECNY KROK</span>
-                            <span class="card-date">Q1 2026</span>
+            <div class="project-showcase-grid">
+                <div class="project-details">
+                    <span class="status-badge" data-i18n="badge_dev_status">FAZA PRE-ALPHA // W PRODUKCJI</span>
+                    <h3 class="project-title">GODKILLER</h3>
+                    <p class="text-body" data-i18n="project_desc">
+                        Świat po wojnach z AI w stanie New State (NS) wzorowanym na Nowym Jorku i Manhattanie. Trzy zróżnicowane dzielnice: industrialne Rusty Lands, surowe Lowtown oraz sterylny Vanguard, w którym Velen sprawuje kontrolę.
+                    </p>
+                    
+                    <div class="feature-list-box">
+                        <div class="feat-item">
+                            <span class="feat-bullet">&gt;</span>
+                            <span data-i18n="feat_1">Bezwzględny system walki oparty na fizyce i ciosach krytycznych.</span>
                         </div>
-                        <h3 class="card-title" data-i18n="q1-title">01. INICJACJA & KONCEPT</h3>
-                        <ul class="card-list">
-                            <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="q1-p1">Koncept artystyczny & lore świata</span></li>
-                            <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="q1-p2">Uruchomienie strony WWW i marki</span></li>
-                            <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="q1-p3">Prototyp mapy brutalistycznej 2km²</span></li>
-                        </ul>
+                        <div class="feat-item">
+                            <span class="feat-bullet">&gt;</span>
+                            <span data-i18n="feat_2">Brutalna, nieliniowa fabuła z trudnymi wyborami moralnymi.</span>
+                        </div>
+                        <div class="feat-item">
+                            <span class="feat-bullet">&gt;</span>
+                            <span data-i18n="feat_3">Industrialna ścieżka dźwiękowa budująca klaustrofobiczny klimat.</span>
+                        </div>
                     </div>
-                    <div class="card-footer footer-active">
-                        <span>// STATUS: ACTIVE</span>
-                        <i class="fa-solid fa-spinner spinner"></i>
+
+                    <dl class="project-meta">
+                        <div class="meta-row">
+                            <dt data-i18n="meta_engine">SILNIK</dt>
+                            <dd>Unity (LOD & Occlusion Culling)</dd>
+                        </div>
+                        <div class="meta-row">
+                            <dt data-i18n="meta_platform">PLATFORMA</dt>
+                            <dd>PC (Windows / Linux)</dd>
+                        </div>
+                        <div class="meta-row">
+                            <dt data-i18n="meta_setting">UNIWERSUM</dt>
+                            <dd data-i18n="meta_setting_val">Stan New State (NS) // po wojnach z AI</dd>
+                        </div>
+                        <div class="meta-row">
+                            <dt data-i18n="meta_world">ŚWIAT</dt>
+                            <dd data-i18n="meta_world_val">Otwarty, 2 km² (Rusty Lands, Lowtown, Vanguard)</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <div class="project-media-box">
+                    <img src="Obrazy/logo.jpg" alt="Godkiller Artwork" class="showcase-img" data-i18n-alt="alt_keyart">
+                    <div class="img-caption-tag">// ASSET_REF: GODKILLER_KEYART_V1</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekcja 03: Roadmap / Harmonogram (5 OKIENEK) -->
+    <section id="roadmap" class="section-block border-top">
+        <div class="container">
+            <div class="section-heading">
+                <span class="sec-number">03 //</span>
+                <h2 data-i18n="roadmap_heading">HARMONOGRAM ROZWOJU (ROADMAP 2026-2027)</h2>
+            </div>
+
+            <div class="terminal-status-banner">
+                <span class="sys-code-tag">// STATUS:</span>
+                <span class="sys-code-val" data-i18n="rm_curr_stage">OBECNIE NA FAZIE Q1 2026 [KONCEPT, WWW & MAPA 2 KM²]</span>
+            </div>
+
+            <div class="roadmap-timeline-grid">
+                
+                <!-- Q1 2026 -->
+                <div class="roadmap-card active-phase">
+                    <div class="rm-header">
+                        <span class="rm-phase-tag">FAZA 01 // Q1 2026</span>
+                        <span class="rm-status-badge current" data-i18n="rm_b_current">AKTYWNY (TU JESTEŚMY)</span>
                     </div>
+                    <div class="rm-quarter">Q1 2026</div>
+                    <h3 class="rm-title" data-i18n="rm_1_title">Koncepcja, Strona WWW & Mapa 2 km²</h3>
+                    <p class="rm-desc" data-i18n="rm_1_desc">Uruchomienie oficjalnego serwera www studia Thorne Interactive. Opracowanie świata gry o powierzchni 2 km² obejmującego sektor przemysłowy (Rusty Lands), slumsy (Lowtown) i strefę korporacyjną (Vanguard).</p>
+                    <ul class="rm-checklist">
+                        <li class="done"><i class="fa-solid fa-check"></i> <span data-i18n="rm_1_c1">[OK] Oficjalny Hub Strony WWW Thorne Interactive</span></li>
+                        <li class="done"><i class="fa-solid fa-check"></i> <span data-i18n="rm_1_c2">[OK] Koncepcja uniwersum 2040 i tożsamość wizualna</span></li>
+                        <li class="in-progress"><i class="fa-solid fa-spinner fa-spin"></i> <span data-i18n="rm_1_c3">[W TRAKCIE] Architektura terenu 2 km² w Unity</span></li>
+                    </ul>
                 </div>
 
                 <!-- Q2 2026 -->
                 <div class="roadmap-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge" data-i18n="q2-tag">FAZA 02</span>
-                            <span class="card-date">Q2 2026</span>
-                        </div>
-                        <h3 class="card-title" data-i18n="q2-title">02. PROTOTYP & WYSYŁKA PLIKÓW</h3>
-                        <ul class="card-list">
-                            <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="q2-p1">Implementacja głównych mechanik (UE5)</span></li>
-                            <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="q2-p2">Wysyłanie plików gry do zamkniętych testerów</span></li>
-                            <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="q2-p3">Pierwszy wewnętrzny Vertical Slice</span></li>
-                        </ul>
+                    <div class="rm-header">
+                        <span class="rm-phase-tag">FAZA 02 // Q2 2026</span>
+                        <span class="rm-status-badge upcoming" data-i18n="rm_b_next">NADCHODZĄCY</span>
                     </div>
-                    <div class="card-footer">
-                        // STATUS: PLANNED
-                    </div>
+                    <div class="rm-quarter">Q2 2026</div>
+                    <h3 class="rm-title" data-i18n="rm_2_title">Zarys Fabuły, Lore & Pliki Systemowe</h3>
+                    <p class="rm-desc" data-i18n="rm_2_desc">Rozbudowa scenariusza głównego (Velen, Kael Cross, Dr. Gero). Przygotowanie pierwszego pakietu plików projektowych, pętli zachowań NPC oraz konfiguracja autorskich skryptów AI.</p>
+                    <ul class="rm-checklist">
+                        <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="rm_2_c1">[ ] Kompletny skrypt dialogowy i drzewka wyborów</span></li>
+                        <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="rm_2_c2">[ ] Integracja pierwszych plików zasobów w repozytorium</span></li>
+                        <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="rm_2_c3">[ ] System tras chodnikowych i tłumu dla NPC</span></li>
+                    </ul>
                 </div>
 
                 <!-- Q3-Q4 2026 -->
                 <div class="roadmap-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge" data-i18n="q3-tag">FAZA 03</span>
-                            <span class="card-date">Q3 - Q4 2026</span>
-                        </div>
-                        <h3 class="card-title" data-i18n="q3-title">03. ZAMKNIĘTA ALFA</h3>
-                        <ul class="card-list">
-                            <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="q3-p1">Testy z zamkniętą społecznością</span></li>
-                            <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="q3-p2">Optymalizacja oprawy audiowizualnej</span></li>
-                            <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="q3-p3">Zwiastun rozgrywki (Gameplay Teaser)</span></li>
-                        </ul>
+                    <div class="rm-header">
+                        <span class="rm-phase-tag">FAZA 03 // Q3 - Q4 2026</span>
+                        <span class="rm-status-badge planned" data-i18n="rm_b_plan">PLANOWANY</span>
                     </div>
-                    <div class="card-footer">
-                        // STATUS: PLANNED
-                    </div>
+                    <div class="rm-quarter">Q3 - Q4 2026</div>
+                    <h3 class="rm-title" data-i18n="rm_3_title">Prototypowanie Unity, LOD & Skrypty C#</h3>
+                    <p class="rm-desc" data-i18n="rm_3_desc">Intensywne prototype-building na silniku Unity 3D. Tworzenie modeli w Blenderze, programowanie zaawansowanych C# skryptów walki, systemów LOD i Occlusion Culling.</p>
+                    <ul class="rm-checklist">
+                        <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="rm_3_c1">[ ] Testy fizyki walki bronią białą i palną</span></li>
+                        <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="rm_3_c2">[ ] Optymalizacja wyrenderowanego terenu (Occlusion)</span></li>
+                        <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="rm_3_c3">[ ] Industrialna ścieżka dźwiękowa i efekty audio</span></li>
+                    </ul>
                 </div>
 
                 <!-- Q1-Q2 2027 -->
                 <div class="roadmap-card">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge" data-i18n="q4-tag">FAZA 04</span>
-                            <span class="card-date">Q1 - Q2 2027</span>
-                        </div>
-                        <h3 class="card-title" data-i18n="q4-title">04. BETA & PRESS</h3>
-                        <ul class="card-list">
-                            <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="q4-p1">Publiczne demo (Steam Next Fest)</span></li>
-                            <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="q4-p2">Kampania prasowa i targi branżowe</span></li>
-                            <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="q4-p3">Polerowanie wydajności i balansu</span></li>
-                        </ul>
+                    <div class="rm-header">
+                        <span class="rm-phase-tag">FAZA 04 // Q1 - Q2 2027</span>
+                        <span class="rm-status-badge planned" data-i18n="rm_b_plan">PLANOWANY</span>
                     </div>
-                    <div class="card-footer">
-                        // STATUS: PLANNED
-                    </div>
+                    <div class="rm-quarter">Q1 - Q2 2027</div>
+                    <h3 class="rm-title" data-i18n="rm_4_title">Faza Pre-Alpha & Testy Wydajności</h3>
+                    <p class="rm-desc" data-i18n="rm_4_desc">Zamknięta faza Pre-Alpha. Integracja wszystkich systemów w jeden płynny monolit, balans rozgrywki, testy na architekturze Linux oraz szlifowanie brutalnej narracji.</p>
+                    <ul class="rm-checklist">
+                        <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="rm_4_c1">[ ] Pierwszy oficjalny gameplay trailer</span></li>
+                        <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="rm_4_c2">[ ] Wycieki testowe Pre-Alpha i optymalizacja RAM/GPU</span></li>
+                        <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="rm_4_c3">[ ] Polerowanie interfejsu HUD oraz reakcji świata</span></li>
+                    </ul>
                 </div>
 
-                <!-- Late Summer / Winter 2027 -->
-                <div class="roadmap-card card-launch">
-                    <div>
-                        <div class="card-header">
-                            <span class="badge badge-warn" data-i18n="q5-tag">PREMIERA</span>
-                            <span class="card-date text-warn">2027</span>
-                        </div>
-                        <h3 class="card-title" data-i18n="q5-title">05. PREMIERA (LATO / ZIMA 2027)</h3>
-                        <ul class="card-list">
-                            <li><i class="fa-solid fa-angle-right icon-warn"></i> <span data-i18n="q5-p1">Oficjalny debiut gry (PC / Konsole)</span></li>
-                            <li><i class="fa-solid fa-angle-right icon-warn"></i> <span data-i18n="q5-p2">Wsparcie popremierowe & DLC</span></li>
-                            <li><i class="fa-solid fa-angle-right icon-warn"></i> <span data-i18n="q5-p3">Rozbudowa uniwersum Thorne</span></li>
-                        </ul>
+                <!-- LATE SUMMER / WINTER 2027 -->
+                <div class="roadmap-card highlight-release">
+                    <div class="rm-header">
+                        <span class="rm-phase-tag">FAZA 05 // PREMIERA</span>
+                        <span class="rm-status-badge target" data-i18n="rm_b_target">CEL PREMIERY</span>
                     </div>
-                    <div class="card-footer footer-warn">
-                        // TARGET LAUNCH 2027
-                    </div>
+                    <div class="rm-quarter">PÓŹNE LATO / ZIMA 2027</div>
+                    <h3 class="rm-title" data-i18n="rm_5_title">Premiera Gry GODKILLER (PC)</h3>
+                    <p class="rm-desc" data-i18n="rm_5_desc">Premiera pełnej wersji GODKILLER na platformy PC (Windows / Linux). Udostępnienie bezkompromisowej, dorosłej gry akcji bez sztucznych ugrzecznień i bez cenzury.</p>
+                    <ul class="rm-checklist">
+                        <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="rm_5_c1">[ ] Wydanie dystrybucyjne PC (Steam / Standalone)</span></li>
+                        <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="rm_5_c2">[ ] Wsparcie po-premierowe i łatki społecznościowe</span></li>
+                    </ul>
                 </div>
 
             </div>
-
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="contact-section">
+    <!-- Sekcja 04: Galeria Media -->
+    <section id="media" class="section-block border-top">
         <div class="container">
-            
-            <div class="section-header">
-                <div>
-                    <p class="section-tag">// DIRECT COMMUNICATIONS</p>
-                    <h2 class="section-title" data-i18n="contact-title">SKONTAKTUJ SIĘ Z NAMI</h2>
+            <div class="section-heading">
+                <span class="sec-number">04 //</span>
+                <h2 data-i18n="media_heading">MATERIAŁY I MULTIMEDIA</h2>
+            </div>
+
+            <div class="filter-controls">
+                <button class="filter-btn active" type="button" data-filter="all" data-i18n="filt_all">WSZYSTKO</button>
+                <button class="filter-btn" type="button" data-filter="screen" data-i18n="filt_screens">SCREENSHOTY</button>
+                <button class="filter-btn" type="button" data-filter="art" data-i18n="filt_art">CONCEPT ART</button>
+            </div>
+
+            <div class="media-grid-container">
+                <div class="media-card" data-category="screen">
+                    <img src="Obrazy/baner.jpg" alt="Render świata" class="media-thumb" data-i18n-alt="alt_render">
+                    <div class="media-info-overlay">
+                        <span class="media-tag-type">// RENDER_3D</span>
+                        <p class="media-desc-text" data-i18n="m_cap_1">Test oświetlenia i struktur architektonicznych w silniku gry.</p>
+                    </div>
                 </div>
+
+                <div class="media-card" data-category="art">
+                    <img src="Obrazy/logo.jpg" alt="Concept art" class="media-thumb" data-i18n-alt="alt_concept">
+                    <div class="media-info-overlay">
+                        <span class="media-tag-type">// CONCEPT_ART</span>
+                        <p class="media-desc-text" data-i18n="m_cap_2">Wstępny projekt symboliki i tożsamości wizualnej studia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekcja 05: Specyfikacja / System Specs & FAQ -->
+    <section id="specs" class="section-block border-top">
+        <div class="container">
+            <div class="section-heading">
+                <span class="sec-number">05 //</span>
+                <h2 data-i18n="specs_heading">WYMAGANIA SYSTEMOWE (PROJEKT GODKILLER)</h2>
+            </div>
+
+            <div class="specs-table-wrapper">
+                <table class="brutalist-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="th_spec">PARAMETR</th>
+                            <th data-i18n="th_min">MINIMALNE (1080p / 30 FPS)</th>
+                            <th data-i18n="th_rec">ZALECANE (1440p / 60 FPS)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-i18n="td_os">SYSTEM OPERACYJNY</td>
+                            <td data-i18n="td_os_min">Windows 10 / 11 (64-bit) lub Linux (Garuda/Arch)</td>
+                            <td>Windows 11 (64-bit)</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="td_cpu">PROCESOR (CPU)</td>
+                            <td>Intel Core i3-6100 lub AMD Ryzen 3 1200</td>
+                            <td>AMD Ryzen 5 / Intel Core i5</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="td_gpu">KARTA GRAFICZNA (GPU)</td>
+                            <td>NVIDIA GeForce GTX 1050 Ti (4 GB VRAM) lub AMD Radeon RX 560 (4 GB VRAM)</td>
+                            <td>NVIDIA GeForce RTX 3060 (8/12 GB VRAM)</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="td_ram">PAMIĘĆ RAM</td>
+                            <td>8 GB RAM DDR4 / DDR5</td>
+                            <td>16 GB RAM DDR4 / DDR5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- FAQ -->
+            <div class="faq-block">
+                <h3 class="brutalist-subheading" data-i18n="faq_heading">CZĘSTE PYTANIA</h3>
+                <details class="faq-item">
+                    <summary data-i18n="faq_q1">Jakie są główne założenia fabularne Godkillera?</summary>
+                    <p data-i18n="faq_a1">Gra opowiada historię w stanie New State (NS) po wojnach z AI w otwartym świecie o powierzchni 2 km² z podziałem na Rusty Lands, Lowtown i Vanguard.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq_q2">Na jakim silniku i jak powstaje gra?</summary>
+                    <p data-i18n="faq_a2">Godkiller powstaje w silniku Unity 3D z wykorzystaniem autorskich skryptów C#, modeli 3D z Blendera oraz autorskich systemów optymalizacji terenu (LOD i Occlusion Culling).</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq_q3">Czy gra będzie cenzurowana?</summary>
+                    <p data-i18n="faq_a3">Nie. Gra projektowana jest z myślą o dojrzałym odbiorcy (R-Rated) – bez ugrzeczniania i bez ustępstw komercyjnych.</p>
+                </details>
+                <details class="faq-item">
+                    <summary data-i18n="faq_q4">Kiedy nastąpi premiera gry?</summary>
+                    <p data-i18n="faq_a4">Premiera zaplanowana jest na późne lato / zimę 2027 roku na komputerach osobistych (PC).</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekcja 06: Kulisy i Fabuła -->
+    <section id="story" class="section-block border-top">
+        <div class="container">
+            <div class="section-heading">
+                <span class="sec-number">06 //</span>
+                <h2 data-i18n="story_heading">FABUŁA I PROCES POWSTAWANIA</h2>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-text-col">
+                    <h3 class="brutalist-subheading" data-i18n="story_subhead_1">UNIWERSUM I FABUŁA GODKILLERA</h3>
+                    <p class="text-body" data-i18n="story_p1">
+                        Świat stanu New State (NS) to surowa rzeczywistość po wojnach z AI. Postacie takie jak Kael mieszkają w Lowtown, ponieważ nie mają sektorowej wizy wjazdowej do elitarnego Vanguard, gdzie urzęduje Velen.
+                    </p>
+
+                    <h3 class="brutalist-subheading" data-i18n="story_subhead_2" style="margin-top: 40px;">JAK POWSTAJE GRA? (PROCES DEWELOPERSKI)</h3>
+                    <p class="text-body" data-i18n="story_p2">
+                        Projekt tworzony jest w pełni niezależnie w Polsce na silniku Unity 3D. Prace obejmują autorski model fizyki walki, dedykowane shader-graphy, trójwymiarowe modele tworzone od zera w Blenderze oraz industrialną ścieżkę dźwiękową.
+                    </p>
+                </div>
+
+                <div class="contact-info-col">
+                    <div class="stat-card" style="margin-bottom: 25px;">
+                        <span class="stat-num">// AUTEUR</span>
+                        <span class="stat-label" data-i18n="stat_auteur_label">BEZ SZTUCZNEJ CENZURY I KOMPROMISÓW</span>
+                    </div>
+
+                    <h3 class="brutalist-subheading" data-i18n="story_subhead_3">STATUS STUDIA</h3>
+                    <p class="text-body" data-i18n="story_contact_desc">
+                        Studio znajduje się w aktywnej fazie deweloperskiej. Kod źródłowy i materiały produkcyjne są sukcesywnie przesyłane do głównego repozytorium projektu.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekcja 07: Kontakt -->
+    <section id="contact" class="section-block border-top">
+        <div class="container">
+            <div class="section-heading">
+                <span class="sec-number">07 //</span>
+                <h2 data-i18n="contact_heading">KANAŁY KONTAKTOWE I WYDUSZENIE SPECYFIKACJI</h2>
             </div>
 
             <div class="contact-grid">
-                
-                <!-- Direct Emails Column -->
-                <div class="contact-emails">
-                    <p class="contact-subtext" data-i18n="contact-emails-sub">
-                        Wybierz odpowiedni kanał komunikacji w zależności od celu zapytania. Kliknij, aby skopiować adres.
+                <div class="contact-info-col">
+                    <h3 class="brutalist-subheading" data-i18n="contact_subhead">BEZPOŚREDNI ADRES EMAIL</h3>
+                    <p class="text-body" data-i18n="contact_p1">
+                        Masz pytania dotyczące projektu GODKILLER, chcesz dołączyć do zespołu lub nawiązać współpracę wydawniczą? Napisz bezpośrednio do twórców.
                     </p>
 
-                    <!-- Email Item 1 -->
-                    <div class="email-card industrial-border" onclick="copyToClipboard('contact@thorneinteractive.com')">
-                        <div class="email-header">
-                            <span data-i18n="email-general">// OGÓLNE ZAPYTANIA</span>
-                            <i class="fa-regular fa-copy"></i>
-                        </div>
-                        <div class="email-address">
-                            contact@thorneinteractive.com
+                    <div class="direct-mail-box">
+                        <span class="dm-label">// GŁÓWNY ADRES E-MAIL</span>
+                        <div class="email-copy-wrapper">
+                            <a href="mailto:contact@thorneinteractive.com" class="dm-link">contact@thorneinteractive.com</a>
+                            <button id="btn-copy-email" class="btn-copy-email" data-i18n="btn_copy">KOPIUJ MAIL</button>
                         </div>
                     </div>
 
-                    <!-- Email Item 2 -->
-                    <div class="email-card industrial-border" onclick="copyToClipboard('press@thorneinteractive.com')">
-                        <div class="email-header">
-                            <span data-i18n="email-press">// PRASA & MEDIA</span>
-                            <i class="fa-regular fa-copy"></i>
+                    <div class="additional-contacts-grid">
+                        <div class="add-contact-item">
+                            <span class="add-c-label">// PRASA & MEDIA</span>
+                            <a href="mailto:press@thorneinteractive.com" class="add-c-link">press@thorneinteractive.com</a>
                         </div>
-                        <div class="email-address">
-                            press@thorneinteractive.com
+                        <div class="add-contact-item">
+                            <span class="add-c-label">// BIZNES & INWESTYCJE</span>
+                            <a href="mailto:business@thorneinteractive.com" class="add-c-link">business@thorneinteractive.com</a>
                         </div>
-                    </div>
-
-                    <!-- Email Item 3 -->
-                    <div class="email-card industrial-border" onclick="copyToClipboard('business@thorneinteractive.com')">
-                        <div class="email-header">
-                            <span data-i18n="email-biz">// BIZNES & INWESTYCJE</span>
-                            <i class="fa-regular fa-copy"></i>
-                        </div>
-                        <div class="email-address">
-                            business@thorneinteractive.com
-                        </div>
-                    </div>
-
-                    <div class="response-notice">
-                        <i class="fa-solid fa-clock"></i>
-                        <span data-i18n="contact-response-time">Czas odpowiedzi: do 24-48 godzin roboczych.</span>
                     </div>
                 </div>
 
-                <!-- Contact Form Column -->
-                <div class="contact-form-container industrial-border">
-                    <form id="contactForm" onsubmit="handleFormSubmit(event)" class="contact-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label data-i18n="form-name">IMIĘ / NICK *</label>
-                                <input type="text" required placeholder="John Doe">
-                            </div>
-                            <div class="form-group">
-                                <label data-i18n="form-email">ADRES E-MAIL *</label>
-                                <input type="email" required placeholder="john@domain.com">
-                            </div>
-                        </div>
+                <div class="contact-form-wrapper">
+                    <div class="terminal-form-header">
+                        <span class="term-dot red"></span>
+                        <span class="term-dot yellow"></span>
+                        <span class="term-dot green"></span>
+                        <span class="term-title">DISPATCH_TERMINAL_V1.0</span>
+                    </div>
 
-                        <div class="form-group">
-                            <label data-i18n="form-category">KATEGORIA ZAPYTANIA</label>
-                            <select>
-                                <option value="general" data-i18n="opt-general">Ogólne / Pytanie</option>
-                                <option value="press" data-i18n="opt-press">Materiały prasowe / Wywiad</option>
-                                <option value="business" data-i18n="opt-business">Propozycja biznesowa / Inwestycje</option>
-                                <option value="career" data-i18n="opt-career">Kariera / Dołącz do zespołu</option>
+                    <form id="contact-form" class="brutalist-form">
+                        <div class="input-group">
+                            <label for="form-name" data-i18n="form_label_name">IDENTYFIKATOR / IMIĘ:</label>
+                            <input type="text" id="form-name" required placeholder="np. Kael Cross">
+                        </div>
+                        <div class="input-group">
+                            <label for="form-email" data-i18n="form_label_email">ADRES E-MAIL NADACY:</label>
+                            <input type="email" id="form-email" required placeholder="nazwa@domena.com">
+                        </div>
+                        <div class="input-group">
+                            <label for="form-subject" data-i18n="form_label_subject">TEMAT WIADOMOŚCI:</label>
+                            <select id="form-subject">
+                                <option value="general" data-i18n="opt_general">Zapytanie Ogólne / Pytania</option>
+                                <option value="publisher" data-i18n="opt_publisher">Współpraca / Wydawca</option>
+                                <option value="media" data-i18n="opt_media">Prasa / Media / Redakcja</option>
+                                <option value="dev" data-i18n="opt_dev">Dołączenie do zespołu / Dev</option>
                             </select>
                         </div>
-
-                        <div class="form-group">
-                            <label data-i18n="form-msg">TREŚĆ WIADOMOŚCI *</label>
-                            <textarea rows="5" required placeholder="Opisz swoje zapytanie..."></textarea>
+                        <div class="input-group">
+                            <label for="form-msg" data-i18n="form_label_msg">TREŚĆ WIADOMOŚCI:</label>
+                            <textarea id="form-msg" rows="4" required placeholder="Wpisz treść wiadomości..."></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-full">
-                            <i class="fa-solid fa-paper-plane"></i> <span data-i18n="form-submit">WYŚLIJ WIADOMOŚĆ</span>
-                        </button>
+                        <button type="submit" class="btn-brutalist full-width" data-i18n="form_btn_send">WYŚLIJ WIADOMOŚĆ // DISPATCH</button>
+                        <div id="form-feedback" class="feedback-message" style="display:none;"></div>
                     </form>
                 </div>
-
             </div>
-
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container footer-container">
-            <p>&copy; 2026 THORNE INTERACTIVE. ALL RIGHTS RESERVED.</p>
-            <div class="social-links">
-                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-discord"></i></a>
-                <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                <a href="#"><i class="fa-brands fa-steam"></i></a>
-            </div>
+    <!-- Stopka -->
+    <footer class="site-footer">
+        <div class="container footer-flex">
+            <p data-i18n="footer_rights">&copy; 2026 THORNE INTERACTIVE. WSZELKIE PRAWA ZASTRZEŻONE.</p>
+            <p class="footer-sys-info">// ARCHITECTURE: STATIC_RWD // EN_PL_AUTO_DETECT</p>
         </div>
     </footer>
 
-    <!-- TOAST NOTIFICATION -->
-    <div id="toast" class="toast cyber-corner">
-        <i class="fa-solid fa-circle-check"></i>
-        <span id="toast-text">Skopiowano adres e-mail!</span>
-    </div>
+    <!-- Przycisk powrotu na górę -->
+    <a href="#hero" class="back-to-top" id="back-to-top" aria-label="Back to top">&uarr;</a>
 
-    <!-- JavaScript File -->
-    <script src="script.js"></script>
+    <!-- Skrypt JavaScript -->
+    <script src="script.js" defer></script>
 </body>
 </html>

@@ -24,7 +24,7 @@ Wersja: 4.0 - Mroczna estetyka, rozbudowany cyfrowy terminal i efekty
 --transition-standard: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Globalny reset i box-sizing */
+/* Globalny reset i box-sizing - TUTAJ BYŁ BRAK GWIAZDKI (*) */
 * {
 box-sizing: border-box;
 margin: 0;
