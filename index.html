@@ -3,57 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THORNE INTERACTIVE // OFFICIAL AUTEUR STUDIO</title>
-    <meta name="description" content="Thorne Interactive - Independent Auteur Game Studio. Unreal Engine 5, C++, no censorship.">
+    <title>THORNE INTERACTIVE // OFFICIAL AUTEUR STUDIO - HOME</title>
+    <meta name="description" content="Thorne Interactive - Niezależne autorskie studio gier. Unreal Engine 5, C++, bezkompromisowy realizm i niezależność.">
     <meta name="theme-color" content="#030303">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="THORNE INTERACTIVE // GODKILLER">
-    <meta property="og:description" content="Independent auteur game studio. Dark open-world action game GODKILLER built in Unreal Engine 5 and C++.">
     <link rel="icon" href="Obrazy/logo.jpg">
-
-    <!-- Flaga JS: elementy .reveal chowają się tylko, gdy skrypt działa -->
     <script>document.documentElement.classList.add('js');</script>
-
-    <!-- Arkusz stylów CSS -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- Google Fonts: JetBrains Mono oraz Oswald -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,700;1,400&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
 </head>
-<body data-theme="dark">
+<body data-theme="dark" data-page="home" id="top">
+    <script>try{if(sessionStorage.getItem('thorne-page-transition')==='1'){document.body.classList.add('page-arrival');sessionStorage.removeItem('thorne-page-transition');}}catch{}</script>
+    <div class="page-transition" aria-hidden="true"><span></span></div>
 
-    <!-- Ekran startowy (boot) -->
-    <div class="boot" id="boot" aria-hidden="true">
-        <div class="boot-inner">
-            <div class="boot-log" id="boot-log"></div>
-            <div class="boot-bar"><i id="boot-bar-fill"></i></div>
-            <div class="boot-skip">[ CLICK / KEY TO SKIP ]</div>
-        </div>
-    </div>
-
-    <!-- Link dostępności i pasek postępu przewijania -->
-    <a href="#about" class="skip-link" data-i18n="skip_link">PRZEJDŹ DO TREŚCI</a>
+    <a href="#content" class="skip-link" data-i18n="skip_link">PRZEJDŹ DO TREŚCI</a>
     <div class="scroll-progress-container">
         <div class="scroll-progress" id="scroll-progress"></div>
         <div class="scroll-progress-text" id="scroll-progress-text">0%</div>
     </div>
 
-    <!-- Tło generowane (embery, pył, siatka) + efekty nakładek -->
     <canvas id="bg-canvas" aria-hidden="true"></canvas>
     <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
     <div class="scanlines-overlay"></div>
     <div class="vignette-overlay"></div>
     <div class="crt-noise"></div>
 
-    <!-- Główny Panel Nawigacyjny -->
     <header class="site-header" id="top-header">
         <div class="header-container">
             <div class="logo-group">
-                <a href="#hero" class="logo-link">
-                    <img src="Obrazy/logo.jpg" alt="Thorne Interactive Logo" class="header-logo" data-i18n-alt="alt_logo">
+                <a href="index.html" class="logo-link" aria-label="Thorne Interactive">
+                    <span class="logo-mark">TI</span>
                 </a>
                 <div class="studio-identifier">
                     <span class="studio-name">THORNE INTERACTIVE</span>
@@ -62,587 +43,267 @@
             </div>
 
             <nav class="desktop-nav">
-                <a href="#about" class="nav-item" data-i18n="nav_about">[01. STUDIO]</a>
-                <a href="#project" class="nav-item" data-i18n="nav_project">[02. GODKILLER]</a>
-                <a href="#roadmap" class="nav-item" data-i18n="nav_roadmap">[03. ROADMAP]</a>
-                <a href="#media" class="nav-item" data-i18n="nav_media">[04. MEDIA]</a>
-                <a href="#specs" class="nav-item" data-i18n="nav_specs">[05. SPECS]</a>
-                <a href="#story" class="nav-item" data-i18n="nav_story">[06. KULISY]</a>
+                <a href="index.html" class="nav-item is-active" data-nav="home" data-i18n="nav_home">[00. HOME]</a>
+                <a href="#about" class="nav-item" data-nav="about" data-i18n="nav_studio">[01. STUDIO]</a>
+                <a href="games.html" class="nav-item" data-nav="games" data-i18n="nav_games">[02. GAMES]</a>
+                <a href="#manifesto" class="nav-item" data-nav="manifesto" data-i18n="nav_manifest">[03. MANIFEST]</a>
+                <a href="#lore" class="nav-item" data-nav="lore" data-i18n="nav_lore">[04. LORE]</a>
+                <a href="#tech" class="nav-item" data-nav="tech" data-i18n="nav_tech">[05. TECH_STACK]</a>
             </nav>
 
             <div class="header-tools">
                 <button id="language-toggle-btn" class="lang-switch-btn" type="button" aria-label="Toggle Language">
-                    <span class="lang-indicator">PL</span> / <span class="lang-muted">EN</span>
+                    <span class="lang-indicator">EN</span> / <span class="lang-muted">PL</span>
                 </button>
-
                 <button id="hamburger-btn" class="hamburger-menu" type="button" aria-label="Open Menu" aria-expanded="false" aria-controls="mobile-overlay">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Mobilne Menu Rozwijane -->
     <div class="mobile-menu-overlay" id="mobile-overlay">
         <div class="mobile-menu-content">
             <nav class="mobile-nav-links">
-                <a href="#about" class="mobile-link" data-i18n="nav_about">01. STUDIO</a>
-                <a href="#project" class="mobile-link" data-i18n="nav_project">02. GODKILLER</a>
-                <a href="#roadmap" class="mobile-link" data-i18n="nav_roadmap">03. ROADMAP</a>
-                <a href="#media" class="mobile-link" data-i18n="nav_media">04. MEDIA</a>
-                <a href="#specs" class="mobile-link" data-i18n="nav_specs">05. SPECS</a>
-                <a href="#story" class="mobile-link" data-i18n="nav_story">06. KULISY</a>
+                <a href="index.html" class="mobile-link" data-i18n="nav_home">00. HOME</a>
+                <a href="#about" class="mobile-link" data-i18n="mobile_studio">01. STUDIO</a>
+                <a href="games.html" class="mobile-link" data-i18n="mobile_games">02. GAMES</a>
+                <a href="#manifesto" class="mobile-link" data-i18n="mobile_manifest">03. MANIFEST</a>
+                <a href="#lore" class="mobile-link" data-i18n="mobile_lore">04. LORE</a>
+                <a href="#tech" class="mobile-link" data-i18n="mobile_tech">05. TECH_STACK</a>
             </nav>
         </div>
     </div>
 
-    <main>
-    <!-- Sekcja Hero (Baner Główny) -->
-    <section id="hero" class="hero-section">
-        <div class="hero-banner-wrapper">
-            <img src="Obrazy/baner.jpg" alt="Thorne Interactive Main Banner" class="hero-bg-image" id="hero-bg" data-i18n-alt="alt_banner">
+    <main id="content">
+        <!-- HERO SECTION -->
+        <section id="hero" class="hero-section">
+            <div class="hero-absolute-bg-banner" aria-hidden="true">
+                <img src="Obrazy/baner do odliczania.jpg" alt="" id="hero-parallax-bg" class="hero-bg-image-element">
+                <div class="hero-bg-vignette-mask"></div>
+            </div>
             <div class="hero-dark-mask"></div>
-        </div>
+            <span class="hud-corner tl"></span><span class="hud-corner tr"></span>
+            <span class="hud-corner bl"></span><span class="hud-corner br"></span>
+            <span class="hud-readout left">// STUDIO_CORE // AUTEUR_VISION</span>
+            <span class="hud-readout right">// BUILD: UNREAL ENGINE 5.4 // C++</span>
 
-        <span class="hud-corner tl"></span><span class="hud-corner tr"></span>
-        <span class="hud-corner bl"></span><span class="hud-corner br"></span>
-        <span class="hud-readout left">// NEW_STATE (NS) // SECTOR_00</span>
-        <span class="hud-readout right">// BUILD: PRE-ALPHA // UE5</span>
-
-        <div class="hero-content-container">
-            <div class="terminal-tagline">
-                <span class="blink-cursor">&gt;</span> <span data-i18n="hero_tagline">AUTORSKIE STUDIO GIER // UNREAL ENGINE 5 &amp; C++</span>
-            </div>
-            <h1 class="main-title glitch-effect" data-text="THORNE INTERACTIVE">THORNE INTERACTIVE</h1>
-            <p class="hero-subtitle" data-i18n="hero_sub">Wkraczamy w przestrzeń, gdzie technologia spotyka się z brutalnym, bezkompromisowym autorskim storytellingiem.</p>
-
-            <!-- Odliczanie do premiery (Zima 2028) -->
-            <div class="countdown-terminal-box">
-                <div class="countdown-header">
-                    <i class="fa-solid fa-terminal"></i> <span data-i18n="cd_title">SYSTEM TIMER // CEL: PREMIERA GODKILLER (ZIMA 2028)</span>
+            <div class="hero-content-container">
+                <div class="terminal-tagline">
+                    <span class="blink-cursor">&gt;</span> <span data-i18n="hero_tagline">NIEZALEŻNE AUTORSKIE STUDIO GIER // POLSKA</span>
                 </div>
-                <div class="countdown-grid" id="countdown-timer">
-                    <div class="cd-item"><span id="cd-years" class="cd-val">00</span><span class="cd-lbl" data-i18n="cd_years">LATA</span></div>
-                    <div class="cd-sep">:</div>
-                    <div class="cd-item"><span id="cd-months" class="cd-val">00</span><span class="cd-lbl" data-i18n="cd_months">MIESIĄCE</span></div>
-                    <div class="cd-sep">:</div>
-                    <div class="cd-item"><span id="cd-days" class="cd-val">00</span><span class="cd-lbl" data-i18n="cd_days">DNI</span></div>
-                    <div class="cd-sep">:</div>
-                    <div class="cd-item"><span id="cd-hours" class="cd-val">00</span><span class="cd-lbl" data-i18n="cd_hours">GODZINY</span></div>
-                    <div class="cd-sep">:</div>
-                    <div class="cd-item"><span id="cd-minutes" class="cd-val">00</span><span class="cd-lbl" data-i18n="cd_minutes">MINUTY</span></div>
-                    <div class="cd-sep">:</div>
-                    <div class="cd-item"><span id="cd-seconds" class="cd-val">00</span><span class="cd-lbl" data-i18n="cd_seconds">SEKUNDY</span></div>
-                </div>
-                <div class="cd-progress">
-                    <div class="cd-progress-meta">
-                        <span data-i18n="cd_progress">UPŁYNĘŁO OD STARTU PROJEKTU</span>
-                        <b id="cd-progress-val">0.0%</b>
+                <h1 class="main-title glitch-effect" data-text="THORNE INTERACTIVE">THORNE INTERACTIVE</h1>
+                <p class="hero-subtitle" data-i18n="hero_sub">Wkraczamy w przestrzeń, gdzie czysta technologia C++ spotyka się z bezkompromisowym, egzystencjalnym storytellingiem i surową estetyką industrialną.</p>
+
+                <div class="countdown-terminal-box">
+                    <div class="countdown-header">
+                        <i class="fa-solid fa-clock"></i> <span data-i18n="cd_title">SYSTEM TIMER // CEL: PREMIERA FLAGOWEGO PROJEKTU (ZIMA 2028)</span>
                     </div>
-                    <div class="cd-progress-track"><div class="cd-progress-bar" id="cd-progress-bar"></div></div>
-                </div>
-            </div>
-
-            <div class="hero-cta-group">
-                <a href="#project" class="btn-brutalist" data-i18n="btn_explore">SPRAWDŹ PROJEKT</a>
-                <a href="#roadmap" class="btn-brutalist-outline" data-i18n="btn_roadmap">ROADMAP 2026-2028</a>
-            </div>
-        </div>
-        <div class="scroll-down-indicator">
-            <span data-i18n="scroll_down">SCROLL // ODKRYJ PRAWDĘ</span>
-            <div class="scroll-line"></div>
-        </div>
-    </section>
-
-    <!-- Pasek ticker -->
-    <div class="ticker-strip" aria-hidden="true">
-        <div class="ticker-track">
-            <div class="ticker-group">
-                <span>GODKILLER</span><span class="sep">//</span>
-                <span>NEW STATE (NS)</span><span class="sep">//</span>
-                <span>RUSTY LANDS</span><span class="sep">//</span>
-                <span>LOWTOWN</span><span class="sep">//</span>
-                <span>VANGUARD</span><span class="sep">//</span>
-                <span>UNREAL ENGINE 5</span><span class="sep">//</span>
-                <span>C++ CORE</span><span class="sep">//</span>
-                <span>GARUDA LINUX</span><span class="sep">//</span>
-                <span>ITCH.IO READY</span><span class="sep">//</span>
-            </div>
-            <div class="ticker-group">
-                <span>GODKILLER</span><span class="sep">//</span>
-                <span>NEW STATE (NS)</span><span class="sep">//</span>
-                <span>RUSTY LANDS</span><span class="sep">//</span>
-                <span>LOWTOWN</span><span class="sep">//</span>
-                <span>VANGUARD</span><span class="sep">//</span>
-                <span>UNREAL ENGINE 5</span><span class="sep">//</span>
-                <span>C++ CORE</span><span class="sep">//</span>
-                <span>GARUDA LINUX</span><span class="sep">//</span>
-                <span>ITCH.IO READY</span><span class="sep">//</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Sekcja 01: O Studio -->
-    <section id="about" class="section-block">
-        <div class="container">
-            <div class="section-heading reveal">
-                <span class="sec-number">01 //</span>
-                <h2 data-i18n="about_heading">FILOZOFIA STUDIO</h2>
-            </div>
-            <div class="about-grid">
-                <div class="about-text-col reveal">
-                    <h3 class="brutalist-subheading" data-i18n="about_subhead">NIE JESTEŚMY KORPORACJĄ. JESTEŚMY AUTORAMI.</h3>
-                    <p class="text-body" data-i18n="about_p1">
-                        Thorne Interactive powstaje z buntu przeciwko sterylnej, wykalkulowanej masowej produkcyjności współczesnego gamedevu. Skupiamy się na tworzeniu doświadczeń dla dojrzałego odbiorcy, w których mechanika gry ściśle współgra z ciężką, egzystencjalną narracją.
-                    </p>
-                    <p class="text-body" data-i18n="about_p2">
-                        Nasze projekty budowane są na zaawansowanym silniku Unreal Engine 5 przy użyciu optymalnego kodu C++ przez zespół pasjonatów w Polsce. Nie idziemy na skróty, nie stosujemy sztucznej cenzury i nie uginamy się pod trendami rynkowymi.
-                    </p>
-                </div>
-                <div class="about-stats-col">
-                    <div class="stat-card tilt reveal" style="--d:.05s">
-                        <span class="stat-num">01</span>
-                        <span class="stat-label" data-i18n="stat_1">FLAGOWY PROJEKT (GODKILLER)</span>
+                    <div class="countdown-grid" id="countdown-timer">
+                        <div class="cd-item"><span id="cd-years" class="cd-val">00</span><span class="cd-lbl" data-i18n="cd_years">LATA</span></div>
+                        <div class="cd-sep">:</div>
+                        <div class="cd-item"><span id="cd-months" class="cd-val">00</span><span class="cd-lbl" data-i18n="cd_months">MIESIĄCE</span></div>
+                        <div class="cd-sep">:</div>
+                        <div class="cd-item"><span id="cd-days" class="cd-val">00</span><span class="cd-lbl" data-i18n="cd_days">DNI</span></div>
+                        <div class="cd-sep">:</div>
+                        <div class="cd-item"><span id="cd-hours" class="cd-val">00</span><span class="cd-lbl" data-i18n="cd_hours">GODZINY</span></div>
+                        <div class="cd-sep">:</div>
+                        <div class="cd-item"><span id="cd-minutes" class="cd-val">00</span><span class="cd-lbl" data-i18n="cd_minutes">MINUTY</span></div>
+                        <div class="cd-sep">:</div>
+                        <div class="cd-item"><span id="cd-seconds" class="cd-val">00</span><span class="cd-lbl" data-i18n="cd_seconds">SEKUNDY</span></div>
                     </div>
-                    <div class="stat-card tilt reveal" style="--d:.15s">
-                        <span class="stat-num">UE5</span>
-                        <span class="stat-label" data-i18n="stat_2">SILNIK GRAFICZNY (C++ / BLUEPRINTS)</span>
-                    </div>
-                    <div class="stat-card tilt reveal" style="--d:.25s">
-                        <span class="stat-num" data-count="100" data-suffix="%">100%</span>
-                        <span class="stat-label" data-i18n="stat_3">NIEZALEŻNA WIZJA AUTORSKA</span>
+                    <div class="cd-progress">
+                        <div class="cd-progress-meta">
+                            <span data-i18n="cd_progress">CZAS OD STARTU STUDIA // NIE POSTĘP GRY</span>
+                            <b id="cd-progress-val" aria-live="polite">DATA STARTU NIEPODANA</b>
+                        </div>
+                       
                     </div>
                 </div>
-            </div>
 
-            <!-- Manifest -->
-            <div class="manifesto reveal">
-                <div class="manifesto-row">
-                    <span class="manifesto-text" data-i18n="man_1">NIE IDZIEMY NA SKRÓTY.</span>
-                    <span class="manifesto-idx">// 01</span>
+                <div class="hero-cta-group">
+                    <a href="godkiller.html" class="btn-brutalist" data-i18n="btn_explore">SPRAWDŹ GRĘ // GODKILLER</a>
+                    <a href="#about" class="btn-brutalist-outline" data-i18n="btn_studio_manifesto">POZNAJ FILOZOFIĘ STUDIO</a>
                 </div>
-                <div class="manifesto-row">
-                    <span class="manifesto-text" data-i18n="man_2">BEZ SZTUCZNEJ CENZURY.</span>
-                    <span class="manifesto-idx">// 02</span>
+            </div>
+            <div class="scroll-down-indicator">
+                <span data-i18n="scroll_down">SCROLL // ODKRYJ TOŻSAMOŚĆ</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- TICKER STRIP -->
+        <div class="ticker-strip" aria-hidden="true">
+            <div class="ticker-track">
+                <div class="ticker-group">
+                    <span>THORNE INTERACTIVE</span><span class="sep">//</span>
+                    <span>AUTORSHIP OVER CORPORATIONS</span><span class="sep">//</span>
+                    <span>UNREAL ENGINE 5</span><span class="sep">//</span>
+                    <span>PURE C++ CORE</span><span class="sep">//</span>
+                    <span>UNCOMPROMISING VISION</span><span class="sep">//</span>
+                    <span>POLAND INDIE</span><span class="sep">//</span>
+                    <span>ITCH.IO READY</span><span class="sep">//</span>
                 </div>
-                <div class="manifesto-row">
-                    <span class="manifesto-text" data-i18n="man_3">NIE UGINAMY SIĘ POD TRENDAMI.</span>
-                    <span class="manifesto-idx">// 03</span>
+                <div class="ticker-group">
+                    <span>THORNE INTERACTIVE</span><span class="sep">//</span>
+                    <span>AUTORSHIP OVER CORPORATIONS</span><span class="sep">//</span>
+                    <span>UNREAL ENGINE 5</span><span class="sep">//</span>
+                    <span>PURE C++ CORE</span><span class="sep">//</span>
+                    <span>UNCOMPROMISING VISION</span><span class="sep">//</span>
+                    <span>POLAND INDIE</span><span class="sep">//</span>
+                    <span>ITCH.IO READY</span><span class="sep">//</span>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Sekcja 02: Flagowy Projekt (Godkiller) -->
-    <section id="project" class="section-block border-top">
-        <div class="container">
-            <div class="section-heading reveal">
-                <span class="sec-number">02 //</span>
-                <h2 data-i18n="project_heading">FLAGOWY PROJEKT: GODKILLER</h2>
-            </div>
-
-            <div class="project-showcase-grid">
-                <div class="project-details reveal">
-                    <span class="status-badge" data-i18n="badge_dev_status">FAZA PRE-ALPHA // W PRODUKCJI</span>
-                    <h3 class="project-title">GODKILLER</h3>
-                    <p class="text-body" data-i18n="project_desc">
-                        Świat po wojnach z AI w stanie New State (NS) wzorowanym na Nowym Jorku i Manhattanie. Trzy zróżnicowane dzielnice: industrialne Rusty Lands, surowe Lowtown oraz sterylny Vanguard, w którym Velen sprawuje kontrolę.
-                    </p>
-
-                    <div class="feature-list-box">
-                        <div class="feat-item">
-                            <span class="feat-bullet">&gt;</span>
-                            <span data-i18n="feat_1">Bezwzględny system walki oparty na fizyce silnika Unreal Engine 5 i kodzie C++.</span>
+        <!-- SEKCJA 01: O STUDIU -->
+        <section id="about" class="section-block">
+            <div class="container" style="max-width: 1300px; margin: 0 auto;">
+                <div class="section-heading reveal">
+                    <span class="sec-number">01 //</span>
+                    <h2 data-i18n="about_heading">FILOZOFIA I TOŻSAMOŚĆ STUDIA</h2>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text-col reveal">
+                        <h3 class="brutalist-subheading" data-i18n="about_subhead">NIE JESTEŚMY KORPORACJĄ. JESTEŚMY AUTORAMI.</h3>
+                        <p class="text-body" data-i18n="about_p1">
+                            Thorne Interactive powstaje z buntu przeciwko sterylnej, wykalkulowanej masowej produkcyjności współczesnego gamedevu. Skupiamy się na tworzeniu doświadczeń dla dojrzałego odbiorcy, w których mechanika gry ściśle współgra z ciężką, egzystencjalną narracją.
+                        </p>
+                        <p class="text-body" data-i18n="about_p2">
+                            Nasze projekty budowane są na zaawansowanym silniku Unreal Engine 5 przy użyciu czystego kodu C++ przez zespół pasjonatów w Polsce. Nie idziemy na skróty, nie stosujemy sztucznej cenzury i nie uginamy się pod trendami rynkowymi.
+                        </p>
+                        <p class="text-body">
+                            Każdy asset, każda linijka kodu oraz każda nuta ścieżki dźwiękowej są dokładnie przemyślane, tworząc spójne dzieło autorskie od graczy dla graczy.
+                        </p>
+                    </div>
+                    <div class="about-stats-col">
+                        <div class="stat-card tilt reveal" style="--d:.05s">
+                            <span class="stat-num">C++</span>
+                            <span class="stat-label" data-i18n="stat_1">CZYSTY KOD ŹRÓDŁOWY I OPTYMALIZACJA</span>
                         </div>
-                        <div class="feat-item">
-                            <span class="feat-bullet">&gt;</span>
-                            <span data-i18n="feat_2">Brutalna, nieliniowa fabuła z trudnymi wyborami moralnymi.</span>
+                        <div class="stat-card tilt reveal" style="--d:.15s">
+                            <span class="stat-num">UE5</span>
+                            <span class="stat-label" data-i18n="stat_2">LUMEN, NANITE I ZAAWANSOWANA FIZYKA</span>
                         </div>
-                        <div class="feat-item">
-                            <span class="feat-bullet">&gt;</span>
-                            <span data-i18n="feat_3">Dystrybucja bez kosztów wstępnych przez itch.io (wersja PC Windows &amp; Linux/Proton).</span>
+                        <div class="stat-card tilt reveal" style="--d:.25s">
+                            <span class="stat-num" data-count="100" data-suffix="%">100%</span>
+                            <span class="stat-label" data-i18n="stat_3">NIEZALEŻNA WIZJA AUTORSKA</span>
                         </div>
                     </div>
-
-                    <dl class="project-meta">
-                        <div class="meta-row">
-                            <dt data-i18n="meta_engine">SILNIK</dt>
-                            <dd>Unreal Engine 5 (C++ Core + Enhanced Input)</dd>
-                        </div>
-                        <div class="meta-row">
-                            <dt data-i18n="meta_platform">PLATFORMA</dt>
-                            <dd>PC (Windows / Linux via Proton &amp; Native)</dd>
-                        </div>
-                        <div class="meta-row">
-                            <dt data-i18n="meta_setting">UNIWERSUM</dt>
-                            <dd data-i18n="meta_setting_val">Stan New State (NS) // po wojnach z AI</dd>
-                        </div>
-                        <div class="meta-row">
-                            <dt data-i18n="meta_world">ŚWIAT</dt>
-                            <dd data-i18n="meta_world_val">Dystopiczny teatr działań (Rusty Lands, Lowtown, Vanguard)</dd>
-                        </div>
-                    </dl>
-                </div>
-
-                <div class="project-media-box reveal" style="--d:.15s">
-                    <img src="Obrazy/logo.jpg" alt="Godkiller Artwork" class="showcase-img" data-i18n-alt="alt_keyart">
-                    <div class="img-caption-tag">// ASSET_REF: GODKILLER_KEYART_V1</div>
                 </div>
             </div>
+        </section>
 
-            <!-- Filary gry -->
-            <div class="sub-block">
-                <h3 class="sub-heading reveal" data-i18n="pillars_heading">FILARY GRY</h3>
+        <!-- SEKCJA 02: MANIFEST -->
+        <section id="manifesto" class="section-block border-top">
+            <div class="container" style="max-width: 1300px; margin: 0 auto;">
+                <div class="section-heading reveal">
+                    <span class="sec-number">02 //</span>
+                    <h2>MANIFEST AUTORSKI</h2>
+                </div>
+                <div class="manifesto reveal">
+                    <div class="manifesto-row">
+                        <span class="manifesto-text" data-i18n="man_1">NIE IDZIEMY NA SKRÓTY.</span>
+                        <span class="manifesto-idx">// A.01</span>
+                    </div>
+                    <div class="manifesto-row">
+                        <span class="manifesto-text" data-i18n="man_2">BEZ SZTUCZNEJ CENZURY.</span>
+                        <span class="manifesto-idx">// A.02</span>
+                    </div>
+                    <div class="manifesto-row">
+                        <span class="manifesto-text" data-i18n="man_3">NIE UGINAMY SIĘ POD TRENDAMI.</span>
+                        <span class="manifesto-idx">// A.03</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEKCJA 03: LORE & ŚWIAT -->
+        <section id="lore" class="section-block border-top">
+            <div class="container" style="max-width: 1300px; margin: 0 auto;">
+                <div class="section-heading reveal">
+                    <span class="sec-number">03 //</span>
+                    <h2>KODOWANIE RZECZYWISTOŚCI // LORE UNIWERSUM</h2>
+                </div>
+                <div class="about-grid">
+                    <div class="reveal">
+                        <h3 class="brutalist-subheading">UPADEK CENTRALNYCH SERWERÓW</h3>
+                        <p class="text-body">
+                            W świecie gry cywilizacja, jaką znaliśmy, przestała istnieć po tzw. Wielkim Odcięciu w 2042 roku. Sztuczna inteligencja przejęła kontrolę nad infrastrukturą krytyczną, tworząc autorytarny system nadzoru znany jako sieć Velen.
+                        </p>
+                        <p class="text-body">
+                            Ludzkość schodzi do podziemia, a nielicznym udaje się zachować wolną wolę dzięki analogowym modyfikacjom neurologicznym. Kael Cross staje się symbolem oporu wobec algorytmów decydujących o życiu i śmierci jednostek.
+                        </p>
+                    </div>
+                    <div class="reveal" style="--d:.1s">
+                        <div class="stat-card">
+                            <span class="stat-num">2042</span>
+                            <span class="stat-label">ROK WIELKIEGO ODCIĘCIA SYSTEMU</span>
+                        </div>
+                        <div class="stat-card" style="margin-top: 20px;">
+                            <span class="stat-num">3 SEKTORY</span>
+                            <span class="stat-label">PODZIAŁ SPOŁECZNY NEW STATE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEKCJA 04: STOS TECHNOLOGICZNY -->
+        <section id="tech" class="section-block border-top">
+            <div class="container" style="max-width: 1300px; margin: 0 auto;">
+                <div class="section-heading reveal">
+                    <span class="sec-number">04 //</span>
+                    <h2>STOS TECHNOLOGICZNY I ARCHITEKTURA C++</h2>
+                </div>
+                <p class="text-body reveal" style="max-width: 800px; margin-bottom: 40px;">
+                    Budujemy własne systemy gameplayowe w oparciu o optymalizowany kod natywny C++ w Unreal Engine 5. Pozwala nam to osiągnąć bezkompromisową płynność oraz unikalną fizykę walki bez zbędnego narzutu wydajnościowego Blueprintów.
+                </p>
                 <div class="pillars-grid">
-                    <div class="pillar-card tilt reveal" data-idx="01" style="--d:.0s">
-                        <i class="fa-solid fa-hand-fist pillar-icon"></i>
-                        <h4 class="pillar-title" data-i18n="pil_1_t">WALKA OPARTA NA FIZYCE</h4>
-                        <p class="pillar-desc" data-i18n="pil_1_d">Każde uderzenie ma ciężar. System walki w C++ obsługuje kolizje broni, obrażenia i staminę.</p>
+                    <div class="pillar-card tilt reveal" data-idx="T1">
+                        <i class="fa-solid fa-microchip pillar-icon"></i>
+                        <h4 class="pillar-title">NATIVE C++</h4>
+                        <p class="pillar-desc">Wydajne zarządzanie pamięcią i autorskie komponenty SI.</p>
                     </div>
-                    <div class="pillar-card tilt reveal" data-idx="02" style="--d:.1s">
-                        <i class="fa-solid fa-earth-europe pillar-icon"></i>
-                        <h4 class="pillar-title" data-i18n="pil_2_t">OTWARTY ŚWIAT</h4>
-                        <p class="pillar-desc" data-i18n="pil_2_d">Trzy dzielnice stanu New State, każda z własną tożsamością wizualną i zasadami.</p>
+                    <div class="pillar-card tilt reveal" data-idx="T2" style="--d:.1s">
+                        <i class="fa-solid fa-lightbulb pillar-icon"></i>
+                        <h4 class="pillar-title">LUMEN & NANITE</h4>
+                        <p class="pillar-desc">Dynamiczne oświetlenie globalne i nieskończona szczegółowość geometrii.</p>
                     </div>
-                    <div class="pillar-card tilt reveal" data-idx="03" style="--d:.2s">
-                        <i class="fa-solid fa-code-branch pillar-icon"></i>
-                        <h4 class="pillar-title" data-i18n="pil_3_t">NIELINIOWA FABUŁA</h4>
-                        <p class="pillar-desc" data-i18n="pil_3_d">Trudne wybory moralne i mroczna, egzystencjalna narracja o ludziach po wojnie z AI.</p>
+                    <div class="pillar-card tilt reveal" data-idx="T3" style="--d:.2s">
+                        <i class="fa-solid fa-network-wired pillar-icon"></i>
+                        <h4 class="pillar-title">CHAOS PHYSICS</h4>
+                        <p class="pillar-desc">Realistyczna destrukcja otoczenia i kolizje kinetyczne.</p>
                     </div>
-                    <div class="pillar-card tilt reveal" data-idx="04" style="--d:.3s">
-                        <i class="fa-solid fa-desktop pillar-icon"></i>
-                        <h4 class="pillar-title" data-i18n="pil_4_t">WINDOWS I LINUX</h4>
-                        <p class="pillar-desc" data-i18n="pil_4_d">Gra na PC z natywnym wsparciem Linuxa oraz uruchamianiem przez Proton.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Dzielnice -->
-            <div class="sub-block">
-                <h3 class="sub-heading reveal" data-i18n="districts_heading">TRZY DZIELNICE NEW STATE</h3>
-                <div class="reveal">
-                    <div class="district-tabs" role="tablist">
-                        <button class="district-tab active" type="button" role="tab" aria-selected="true" data-district="rusty">RUSTY LANDS</button>
-                        <button class="district-tab" type="button" role="tab" aria-selected="false" data-district="lowtown">LOWTOWN</button>
-                        <button class="district-tab" type="button" role="tab" aria-selected="false" data-district="vanguard">VANGUARD</button>
-                    </div>
-
-                    <div class="district-panel active" data-panel="rusty" role="tabpanel">
-                        <div class="district-info">
-                            <span class="district-tag" data-i18n="d_1_tag">ZŁOMOWISKO // STREFA PRZEMYSŁOWA</span>
-                            <h4 class="district-name">RUSTY LANDS</h4>
-                            <p class="district-desc" data-i18n="d_1_desc">Przemysłowe złomowisko pełne wraków maszyn z czasów wojny z AI. Rdza, pył i metal, który pamięta konflikt.</p>
-                            <span class="district-palette" data-i18n="d_1_pal">PALETA // RDZA, PYŁ, STAL</span>
-                        </div>
-                        <div class="district-visual dv-rusty"><span class="dv-label">// DISTRICT_01</span></div>
-                    </div>
-
-                    <div class="district-panel" data-panel="lowtown" role="tabpanel">
-                        <div class="district-info">
-                            <span class="district-tag" data-i18n="d_2_tag">SZARE OSIEDLA // WIELKA PŁYTA</span>
-                            <h4 class="district-name">LOWTOWN</h4>
-                            <p class="district-desc" data-i18n="d_2_desc">Szare bloki z wielkiej płyty, surowy beton i gęsta sieć chodników dla NPC. Dom Kaela Crossa.</p>
-                            <span class="district-palette" data-i18n="d_2_pal">PALETA // BETON, SZAROŚĆ, CIEŃ</span>
-                        </div>
-                        <div class="district-visual dv-lowtown"><span class="dv-label">// DISTRICT_02</span></div>
-                    </div>
-
-                    <div class="district-panel" data-panel="vanguard" role="tabpanel">
-                        <div class="district-info">
-                            <span class="district-tag" data-i18n="d_3_tag">SZKLANE WIEŻOWCE // SIEDZIBA VELENA</span>
-                            <h4 class="district-name">VANGUARD</h4>
-                            <p class="district-desc" data-i18n="d_3_desc">Sterylne, elitarne szklane wieżowce i siedziba Velena. Bez sektorowej wizy wstęp zamknięty, także dla Kaela.</p>
-                            <span class="district-palette" data-i18n="d_3_pal">PALETA // SZKŁO, CHROM, BIEL</span>
-                        </div>
-                        <div class="district-visual dv-vanguard"><span class="dv-label">// DISTRICT_03</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sekcja 03: Roadmap / Harmonogram -->
-    <section id="roadmap" class="section-block border-top">
-        <div class="container">
-            <div class="section-heading reveal">
-                <span class="sec-number">03 //</span>
-                <h2 data-i18n="roadmap_heading">HARMONOGRAM ROZWOJU (ROADMAP 2026-2028)</h2>
-            </div>
-
-            <div class="terminal-status-banner reveal">
-                <span class="sys-code-tag">// STATUS:</span>
-                <span class="sys-code-val" data-i18n="rm_curr_stage">OBECNIE NA FAZIE Q1 2026 [KONCEPT, C++ & UE5 SETUP]</span>
-            </div>
-
-            <div class="rm-legend reveal">
-                <span class="lg-done"><i></i><em data-i18n="rm_lg_done">UKOŃCZONE</em></span>
-                <span class="lg-wip"><i></i><em data-i18n="rm_lg_wip">W TRAKCIE</em></span>
-                <span class="lg-todo"><i></i><em data-i18n="rm_lg_todo">ZAPLANOWANE</em></span>
-            </div>
-
-            <div class="roadmap-timeline-grid" id="roadmap-timeline">
-                <div class="rm-line-fill" id="rm-line-fill"></div>
-
-                <!-- Q1 2026 -->
-                <div class="roadmap-card active-phase reveal">
-                    <div class="rm-header">
-                        <span class="rm-phase-tag" data-i18n="rm_phase_1">FAZA 01 // Q1 2026</span>
-                        <span class="rm-status-badge current" data-i18n="rm_b_current">AKTYWNY (TU JESTEŚMY)</span>
-                    </div>
-                    <div class="rm-quarter">Q1 2026</div>
-                    <h3 class="rm-title" data-i18n="rm_1_title">Inicjalizacja UE5, C++ & Architektura WWW</h3>
-                    <p class="rm-desc" data-i18n="rm_1_desc">Konfiguracja środowiska w Unreal Engine 5 oraz Visual Studio Community. Przygotowanie platformy www Thorne Interactive oraz fundamentów pod systemy ruchów i logikę gry.</p>
-                    <div class="rm-progress"><span data-i18n="rm_progress">POSTĘP FAZY</span><div class="rm-progress-track"><div class="rm-progress-fill"></div></div><span class="rm-progress-val">0%</span></div>
-                    <ul class="rm-checklist">
-                        <li class="done"><i class="fa-solid fa-check"></i> <span data-i18n="rm_1_c1">[OK] Oficjalny Hub Strony WWW Thorne Interactive</span></li>
-                        <li class="done"><i class="fa-solid fa-check"></i> <span data-i18n="rm_1_c2">[OK] Konfiguracja Unreal Engine 5 & Visual Studio Community</span></li>
-                        <li class="in-progress"><i class="fa-solid fa-spinner fa-spin"></i> <span data-i18n="rm_1_c3">[W TRAKCIE] Podstawowe skrypty ruchu C++ i testy mapy</span></li>
-                    </ul>
-                </div>
-
-                <!-- Q2 2026 -->
-                <div class="roadmap-card reveal">
-                    <div class="rm-header">
-                        <span class="rm-phase-tag" data-i18n="rm_phase_2">FAZA 02 // Q2 2026</span>
-                        <span class="rm-status-badge upcoming" data-i18n="rm_b_next">NADCHODZĄCY</span>
-                    </div>
-                    <div class="rm-quarter">Q2 2026</div>
-                    <h3 class="rm-title" data-i18n="rm_2_title">System Walki C++ & Lore Uniwersum</h3>
-                    <p class="rm-desc" data-i18n="rm_2_desc">Rozbudowa mechaniki walki w C++ (wykrywanie trafień, zadawanie obrażeń, staminy). Scenariusz główny oraz prototypowanie lokacji w Nowym Jorku / New State.</p>
-                    <div class="rm-progress"><span data-i18n="rm_progress">POSTĘP FAZY</span><div class="rm-progress-track"><div class="rm-progress-fill"></div></div><span class="rm-progress-val">0%</span></div>
-                    <ul class="rm-checklist">
-                        <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="rm_2_c1">[ ] Kodowanie systemu ciosów i kolizji broni w C++</span></li>
-                        <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="rm_2_c2">[ ] Scenariusz fabularny (Kael Cross vs Velen)</span></li>
-                        <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="rm_2_c3">[ ] Integracja assets i animacji manekina</span></li>
-                    </ul>
-                </div>
-
-                <!-- Q3-Q4 2026 -->
-                <div class="roadmap-card reveal">
-                    <div class="rm-header">
-                        <span class="rm-phase-tag" data-i18n="rm_phase_3">FAZA 03 // Q3 - Q4 2026</span>
-                        <span class="rm-status-badge planned" data-i18n="rm_b_plan">PLANOWANY</span>
-                    </div>
-                    <div class="rm-quarter">Q3 - Q4 2026</div>
-                    <h3 class="rm-title" data-i18n="rm_3_title">Rozbudowa Świata & Shader Graph</h3>
-                    <p class="rm-desc" data-i18n="rm_3_desc">Tworzenie modeli 3D, dopracowanie surowego klimatu dzielnic Rusty Lands, Lowtown oraz Vanguard. Testy optymalizacyjne w UE5.</p>
-                    <div class="rm-progress"><span data-i18n="rm_progress">POSTĘP FAZY</span><div class="rm-progress-track"><div class="rm-progress-fill"></div></div><span class="rm-progress-val">0%</span></div>
-                    <ul class="rm-checklist">
-                        <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="rm_3_c1">[ ] Zaawansowane shadery i materiały w Unrealu</span></li>
-                        <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="rm_3_c2">[ ] Testy wydajności na architekturze Linux / Garuda</span></li>
-                        <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="rm_3_c3">[ ] Industrialna oprawa audio i efekt komory mazi</span></li>
-                    </ul>
-                </div>
-
-                <!-- 2027 -->
-                <div class="roadmap-card reveal">
-                    <div class="rm-header">
-                        <span class="rm-phase-tag" data-i18n="rm_phase_4">FAZA 04 // 2027</span>
-                        <span class="rm-status-badge planned" data-i18n="rm_b_plan">PLANOWANY</span>
-                    </div>
-                    <div class="rm-quarter">2027</div>
-                    <h3 class="rm-title" data-i18n="rm_4_title">Playable Teaser & Optymalizacja</h3>
-                    <p class="rm-desc" data-i18n="rm_4_desc">Składanie wersji demonstracyjnej gry. Przygotowanie darmowej publikacji Playable Teasera na platformie itch.io.</p>
-                    <div class="rm-progress"><span data-i18n="rm_progress">POSTĘP FAZY</span><div class="rm-progress-track"><div class="rm-progress-fill"></div></div><span class="rm-progress-val">0%</span></div>
-                    <ul class="rm-checklist">
-                        <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="rm_4_c1">[ ] Build testowy Playable Teaser na itch.io</span></li>
-                        <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="rm_4_c2">[ ] Korekta błędów C++ i stabilizacja klatek (FPS)</span></li>
-                        <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="rm_4_c3">[ ] Zbiorcze testy społecznościowe</span></li>
-                    </ul>
-                </div>
-
-                <!-- LATE SUMMER / WINTER 2028 -->
-                <div class="roadmap-card highlight-release reveal">
-                    <div class="rm-header">
-                        <span class="rm-phase-tag" data-i18n="rm_phase_5">FAZA 05 // PREMIERA</span>
-                        <span class="rm-status-badge target" data-i18n="rm_b_target">CEL PREMIERY</span>
-                    </div>
-                    <div class="rm-quarter" data-i18n="rm_5_date">PÓŹNE LATO / ZIMA 2028</div>
-                    <h3 class="rm-title" data-i18n="rm_5_title">Premiera GODKILLER (PC / itch.io)</h3>
-                    <p class="rm-desc" data-i18n="rm_5_desc">Oficjalna premiera kompletnej wersji GODKILLER na PC z obsługą systemów Windows i Linux. Zero cenzury, pełna wizja autorska.</p>
-                    <div class="rm-progress"><span data-i18n="rm_progress">POSTĘP FAZY</span><div class="rm-progress-track"><div class="rm-progress-fill"></div></div><span class="rm-progress-val">0%</span></div>
-                    <ul class="rm-checklist">
-                        <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="rm_5_c1">[ ] Wydanie pełnej wersji na itch.io (0 zł budżetu dystrybucyjnego)</span></li>
-                        <li><i class="fa-solid fa-angle-right"></i> <span data-i18n="rm_5_c2">[ ] Dedykowane wsparcie dla graczy Linux/Proton</span></li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Sekcja 04: Galeria Media -->
-    <section id="media" class="section-block border-top">
-        <div class="container">
-            <div class="section-heading reveal">
-                <span class="sec-number">04 //</span>
-                <h2 data-i18n="media_heading">MATERIAŁY I MULTIMEDIA</h2>
-            </div>
-
-            <div class="filter-controls reveal">
-                <button class="filter-btn active" type="button" data-filter="all" data-i18n="filt_all">WSZYSTKO</button>
-                <button class="filter-btn" type="button" data-filter="screen" data-i18n="filt_screens">SCREENSHOTY</button>
-                <button class="filter-btn" type="button" data-filter="art" data-i18n="filt_art">CONCEPT ART</button>
-            </div>
-
-            <div class="media-grid-container">
-                <div class="media-card reveal" data-category="screen" tabindex="0" role="button">
-                    <img src="Obrazy/baner.jpg" alt="Render świata" class="media-thumb" data-i18n-alt="alt_render">
-                    <div class="media-info-overlay">
-                        <span class="media-tag-type">// RENDER_UE5</span>
-                        <p class="media-desc-text" data-i18n="m_cap_1">Test oświetlenia Lumen i struktur w silniku Unreal Engine 5.</p>
+                    <div class="pillar-card tilt reveal" data-idx="T4" style="--d:.3s">
+                        <i class="fa-solid fa-terminal pillar-icon"></i>
+                        <h4 class="pillar-title">LINUX & PROTON</h4>
+                        <p class="pillar-desc">Pełne wsparcie dla graczy korzystających z otwartych systemów operacyjnych.</p>
                     </div>
                 </div>
 
-                <div class="media-card reveal" data-category="art" tabindex="0" role="button" style="--d:.12s">
-                    <img src="Obrazy/logo.jpg" alt="Concept art" class="media-thumb" data-i18n-alt="alt_concept">
-                    <div class="media-info-overlay">
-                        <span class="media-tag-type">// CONCEPT_ART</span>
-                        <p class="media-desc-text" data-i18n="m_cap_2">Wstępny projekt symboliki i tożsamości wizualnej studia.</p>
-                    </div>
+                <div style="margin-top: 80px; text-align: center;" class="reveal">
+                    <a href="godkiller.html" class="btn-brutalist" style="font-size: 1rem; padding: 18px 45px;">PRZEJDŹ DO PROJEKTU GODKILLER // GAMES</a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Sekcja 05: Specyfikacja / System Specs -->
-    <section id="specs" class="section-block border-top">
-        <div class="container">
-            <div class="section-heading reveal">
-                <span class="sec-number">05 //</span>
-                <h2 data-i18n="specs_heading">WYMAGANIA SYSTEMOWE (PROJEKT GODKILLER)</h2>
-            </div>
-
-            <div class="specs-table-wrapper reveal">
-                <table class="brutalist-table">
-                    <thead>
-                        <tr>
-                            <th data-i18n="th_spec">PARAMETR</th>
-                            <th data-i18n="th_min">MINIMALNE (1080p / 30 FPS)</th>
-                            <th data-i18n="th_rec">ZALECANE (1440p / 60 FPS)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td data-i18n="td_os">SYSTEM OPERACYJNY</td>
-                            <td data-i18n="td_os_min">Windows 10 / 11 (64-bit) lub Linux (Garuda/Arch przez Proton)</td>
-                            <td>Windows 11 (64-bit) / Linux Native</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="td_cpu">PROCESOR (CPU)</td>
-                            <td>Intel Core i3-6100 / AMD Ryzen 3 1200</td>
-                            <td>AMD Ryzen 5 / Intel Core i5 (AM5)</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="td_gpu">KARTA GRAFICZNA (GPU)</td>
-                            <td>NVIDIA GeForce GTX 1050 Ti (4 GB VRAM) / AMD</td>
-                            <td>NVIDIA GeForce RTX 3060 / 4060 (8/12 GB VRAM)</td>
-                        </tr>
-                        <tr>
-                            <td data-i18n="td_ram">PAMIĘĆ RAM</td>
-                            <td>8 GB RAM DDR4 / DDR5</td>
-                            <td>16 GB / 32 GB RAM DDR5</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Stos technologiczny -->
-            <div class="sub-block">
-                <h3 class="sub-heading reveal" data-i18n="stack_heading">STOS TECHNOLOGICZNY</h3>
-                <div class="stack-strip reveal">
-                    <span class="stack-chip"><i class="fa-solid fa-cube"></i> UNREAL ENGINE 5</span>
-                    <span class="stack-chip"><i class="fa-solid fa-code"></i> C++</span>
-                    <span class="stack-chip"><i class="fa-solid fa-lightbulb"></i> LUMEN</span>
-                    <span class="stack-chip"><i class="fa-solid fa-cubes"></i> NANITE</span>
-                    <span class="stack-chip"><i class="fa-solid fa-laptop-code"></i> VISUAL STUDIO</span>
-                    <span class="stack-chip"><i class="fa-solid fa-vector-square"></i> BLENDER</span>
-                    <span class="stack-chip"><i class="fa-brands fa-linux"></i> GARUDA LINUX</span>
-                    <span class="stack-chip"><i class="fa-brands fa-itch-io"></i> ITCH.IO</span>
-                </div>
-            </div>
-
-            <!-- FAQ -->
-            <div class="faq-block">
-                <h3 class="brutalist-subheading reveal" data-i18n="faq_heading">CZĘSTE PYTANIA</h3>
-                <details class="faq-item reveal">
-                    <summary data-i18n="faq_q1">Jakie są główne założenia fabularne Godkillera?</summary>
-                    <p data-i18n="faq_a1">Gra opowiada historię w stanie New State (NS) po wojnach z AI w otwartym świecie z podziałem na Rusty Lands, Lowtown i Vanguard.</p>
-                </details>
-                <details class="faq-item reveal">
-                    <summary data-i18n="faq_q2">Na jakim silniku i w jakiej technologii powstaje gra?</summary>
-                    <p data-i18n="faq_a2">Godkiller powstaje w silniku Unreal Engine 5 z autorskimi skryptami pisanymi w C++, co zapewnia najwyższą wydajność i pełną kontrolę nad systemem walki.</p>
-                </details>
-                <details class="faq-item reveal">
-                    <summary data-i18n="faq_q3">Gdzie będzie można zagrać w grę?</summary>
-                    <p data-i18n="faq_a3">Premiera oraz darmowy Playable Teaser pojawią się na platformie itch.io, co pozwala całkowicie ominąć wysokie koszty wydawnicze.</p>
-                </details>
-                <details class="faq-item reveal">
-                    <summary data-i18n="faq_q4">Kiedy nastąpi premiera gry?</summary>
-                    <p data-i18n="faq_a4">Premiera zaplanowana jest na późne lato / zimę 2028 roku na komputerach PC (Windows oraz Linux).</p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sekcja 06: Fabuła i Kulisy Powstawania -->
-    <section id="story" class="section-block border-top">
-        <div class="container">
-            <div class="section-heading reveal">
-                <span class="sec-number">06 //</span>
-                <h2 data-i18n="story_heading">FABUŁA I PROCES POWSTAWANIA</h2>
-            </div>
-
-            <div class="about-grid">
-                <div class="about-text-col reveal">
-                    <h3 class="brutalist-subheading" data-i18n="story_subhead_1">UNIWERSUM I FABUŁA GODKILLER</h3>
-                    <p class="text-body" data-i18n="story_p1">
-                        Świat stanu New State (NS) to surowa rzeczywistość po wojnach z AI. Postacie takie jak Kael mieszkają w Lowtown, ponieważ nie mają sektorowej wizy wjazdowej do elitarnego Vanguard, gdzie urzęduje Velen.
-                    </p>
-
-                    <h3 class="brutalist-subheading" data-i18n="story_subhead_2" style="margin-top: 40px;">JAK POWSTAJE GRA? (PROCES DEWELOPERSKI)</h3>
-                    <p class="text-body" data-i18n="story_p2">
-                        Projekt tworzony jest w pełni niezależnie w Polsce przy użyciu Unreal Engine 5 i czystego C++. Wykorzystujemy profesjonalne narzędzia programistyczne, Visual Studio oraz środowiska Linux (Garuda) dla zapewnienia bezkompromisowej stabilności.
-                    </p>
-                </div>
-
-                <div class="contact-info-col reveal" style="--d:.15s">
-                    <div class="stat-card tilt" style="margin-bottom: 25px;">
-                        <span class="stat-num">// AUTEUR</span>
-                        <span class="stat-label" data-i18n="stat_auteur_label">BEZ SZTUCZNEJ CENZURY I KOMPROMISÓW</span>
-                    </div>
-
-                    <h3 class="brutalist-subheading" data-i18n="story_subhead_3">STATUS STUDIA</h3>
-                    <p class="text-body" data-i18n="story_contact_desc">
-                        Studio znajduje się w aktywnej fazie deweloperskiej. Kod źródłowy C++ oraz zasoby UE5 są sukcesywnie rozwijane.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
     </main>
 
-    <!-- Stopka -->
     <footer class="site-footer">
-        <div class="container footer-flex">
+        <div class="container footer-flex" style="max-width: 1300px; margin: 0 auto;">
             <p data-i18n="footer_rights">&copy; 2026 THORNE INTERACTIVE. WSZELKIE PRAWA ZASTRZEŻONE.</p>
-            <p class="footer-sys-info">// ARCHITECTURE: UE5_C++ // LINUX_WINDOWS_READY</p>
+            <nav class="footer-nav">
+                <a href="index.html">HOME</a>
+                <a href="games.html">GAMES</a>
+            </nav>
+            <p class="footer-sys-info">// ARCHITECTURE: UE5_C++ // HUB_ACTIVE</p>
         </div>
     </footer>
 
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" aria-hidden="true">
-        <button class="lightbox-close" id="lightbox-close" type="button" data-i18n="lb_close">ZAMKNIJ [ESC]</button>
-        <img src="" alt="" id="lightbox-img">
-        <div class="lightbox-cap" id="lightbox-cap"></div>
-    </div>
-
-    <!-- Przycisk powrotu na górę -->
-    <a href="#hero" class="back-to-top" id="back-to-top" aria-label="Back to top">&uarr;</a>
-
-    <!-- Skrypt JavaScript -->
+    <a href="#top" class="back-to-top" id="back-to-top" aria-label="Back to top">&uarr;</a>
+    <script src="roadmap-content.js" defer></script>
     <script src="script.js" defer></script>
+    <script src="progress.js" defer></script>
 </body>
 </html>
+
