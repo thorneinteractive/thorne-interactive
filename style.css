@@ -1326,3 +1326,37 @@ img, canvas, video { max-width: 100%; }
   .countdown-header { align-items: flex-start; }
   .catalog-tab { padding-inline: 5px; }
 }
+
+
+/* Home: reserve the countdown artwork for the title and timer, then fade into stars. */
+body[data-page="home"] .hero-section { background: #050505; }
+body[data-page="home"] .hero-section::after { display: none; }
+body[data-page="home"] .hero-absolute-bg-banner {
+  inset: 0 -4% auto;
+  height: clamp(500px, 74vh, 760px);
+  overflow: hidden;
+  transform: none;
+  translate: none;
+}
+body[data-page="home"] .hero-absolute-bg-banner::after {
+  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: linear-gradient(180deg, rgba(5,5,5,.06) 0%, rgba(5,5,5,.08) 48%, rgba(5,5,5,.55) 76%, #050505 100%);
+}
+body[data-page="home"] .hero-bg-vignette-mask { z-index: 1; }
+body[data-page="home"] .hero-bg-image-element {
+  object-position: 50% 43%;
+  filter: grayscale(100%) brightness(.62) contrast(1.16);
+}
+.cursor-glow {
+  width: 520px; height: 520px; margin: -260px 0 0 -260px;
+  background: radial-gradient(circle, rgba(245,248,255,.17) 0%, rgba(190,210,245,.085) 17%, rgba(190,210,245,.035) 38%, transparent 68%);
+  mix-blend-mode: screen;
+}
+@media (max-width: 700px) {
+  body[data-page="home"] .hero-absolute-bg-banner { height: clamp(480px, 68vh, 620px); }
+  body[data-page="home"] .hero-bg-image-element { object-position: 50% 42%; transform: scale(1.18); }
+}
+@media (prefers-reduced-motion: reduce) {
+  body[data-page="home"] .hero-bg-image-element { animation: none; }
+  .cursor-glow { display: none; }
+}

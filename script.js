@@ -668,6 +668,7 @@
     const context = canvas.getContext('2d', { alpha: true });
     if (!context) return;
     let width = 0, height = 0, particles = [], raf = 0;
+    const starField = document.body.dataset.page === 'home';
     let dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     const pointer = { x: -9999, y: -9999 };
 
@@ -680,14 +681,16 @@
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
       context.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const count = Math.min(58, Math.max(20, Math.round(width / 26)));
+      const count = starField ? Math.min(100, Math.max(48, Math.round(width / 15))) : Math.min(58, Math.max(20, Math.round(width / 26)));
       particles = Array.from({ length: count }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
         vx: (Math.random() - 0.5) * 0.16,
         vy: (Math.random() - 0.5) * 0.16,
-        radius: Math.random() * 1.4 + 0.4,
-        alpha: Math.random() * 0.3 + 0.08
+        radius: starField ? Math.random() * 1.15 + 0.35 : Math.random() * 1.4 + 0.4,
+        alpha: starField ? Math.random() * 0.44 + 0.2 : Math.random() * 0.3 + 0.08,
+        phase: Math.random() * Math.PI * 2,
+        twinkle: Math.random() * 0.012 + 0.003
       }));
     };
 
@@ -710,10 +713,15 @@
         }
 
         context.beginPath();
-        context.fillStyle = `rgba(205, 205, 205, ${particle.alpha * 0.28})`;
+        const twinkle = starField ? 0.55 + Math.sin(performance.now() * particle.twinkle + particle.phase) * 0.45 : 0.28;
+        context.fillStyle = `rgba(232, 238, 248, ${particle.alpha * twinkle})`;
+        context.shadowColor = starField ? 'rgba(205,220,255,.8)' : 'transparent';
+        context.shadowBlur = starField && particle.radius > 1 ? 5 : 0;
         context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
         context.fill();
+        context.shadowBlur = 0;
 
+        if (starField) return;
         for (let next = index + 1; next < particles.length; next++) {
           const other = particles[next];
           const dx = particle.x - other.x;
@@ -748,15 +756,19 @@
     const glow = $('#cursor-glow');
     if (!glow || prefersReducedMotion || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
     let raf = 0;
-    let x = -600, y = -600;
+    let x = -600, y = -600, targetX = x, targetY = y;
+    const followPointer = () => {
+      x += (targetX - x) * 0.18;
+      y += (targetY - y) * 0.18;
+      glow.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      if (Math.abs(targetX - x) + Math.abs(targetY - y) > 0.35) raf = requestAnimationFrame(followPointer);
+      else raf = 0;
+    };
     window.addEventListener('pointermove', event => {
-      x = event.clientX;
-      y = event.clientY;
-      if (!raf) raf = requestAnimationFrame(() => {
-        glow.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-        glow.classList.add('on');
-        raf = 0;
-      });
+      targetX = event.clientX;
+      targetY = event.clientY;
+      glow.classList.add('on');
+      if (!raf) raf = requestAnimationFrame(followPointer);
     }, { passive: true });
     document.documentElement.addEventListener('mouseleave', () => glow.classList.remove('on'));
   }
@@ -932,6 +944,7 @@
     }
   }
 })();
+
 
 
 
